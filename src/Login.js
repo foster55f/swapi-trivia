@@ -9,7 +9,9 @@ class Login extends Component {
             user: {
                 name: '',
                 quote: '',
-                ranking: ''
+                ranking: '',
+                isSignedIn: false,
+                errors:{}
               }
         }
     }
@@ -24,7 +26,7 @@ class Login extends Component {
                         <label>Select Level</label>
                         <select></select>
                     </div>
-                    <button></button>
+                    <button type= 'submit' className = 'loginButton' onClick ={this.login}>Luke I Am Your Father</button>
               </form>
             </div>
         )
