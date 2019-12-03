@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import MovieContainer from './MovieContainer';
-import Login from './Login';
+import MovieContainer from '../MovieContainer/MovieContainer';
+import Login from '../Login/Login';
 
 
 class App extends Component {
