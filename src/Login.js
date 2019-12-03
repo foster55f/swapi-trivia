@@ -17,7 +17,9 @@ class Login extends Component {
     }
 
     handleChange(event) {
-        this.setState({ 'name': event.target.value })
+        this.setState({ [event.target.name]: event.target.value })
+        console.log(this.state.name)
+        console.log(this.state.quote)
     }
 
     login = (event) => {
@@ -30,7 +32,8 @@ class Login extends Component {
             <div className = 'loginHome'>
              <h1 className = 'welcome'>Welcome to Star Wars!!!</h1>
               <form>
-                    <input type='text' placeholder='Name' value={this.state.name} onChange={event => this.handleChange(event)}/>
+                    <input type='text' placeholder='Name' value={this.state.name} name = 'name' onChange={event => this.handleChange(event)} />
+                    <textarea type='text' placeholder='Quote' value={this.state.quote} name = 'quote' onChange={event => this.handleChange(event)}></textarea>         
                     <div>
                         <label>Select Level</label>
                         <select>
