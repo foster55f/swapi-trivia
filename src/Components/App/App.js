@@ -35,8 +35,6 @@ class App extends Component {
         <div>
           {/* <Login enterUserInfo={this.enterUserInfo} /> */}
           <MovieContainer  flicks = {this.state.flicks}/>
-          
-          {/* <MovieContainer foster={['yello', 'dave', 'its', 'all', 'coming', 'together']}/> */}
           </div>
       </main>
     )
