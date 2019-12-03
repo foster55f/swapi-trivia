@@ -16,14 +16,15 @@ class App extends Component {
     }
   }
 
-  enterUserInfo() {
-    return 'yello!!'
+  enterUserInfo = (userData) => {
+    this.setState({
+      user:{...userData}
+    })
   }
 
   render() {
     return (
       <main>
-        <h1>Yello from the past!!!!</h1>
         <div>
           <Login enterUserInfo = {this.enterUserInfo}/>
           {/* <MovieContainer foster={['yello', 'dave', 'its', 'all', 'coming', 'together']}/> */}
