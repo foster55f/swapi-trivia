@@ -5,7 +5,8 @@ const CharacterContainer = () => {
 
   return (
     <section className="character-container">
-      <p>Placeholder Element</p>
+      <p>Arrive here after </p>
+      <p>Needs to contain room for 10 character cards and the scrolling text component</p>
     </section>
   )
 };
