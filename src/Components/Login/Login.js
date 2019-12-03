@@ -31,10 +31,6 @@ class Login extends Component {
         this.props.enterUserInfo(this.state)
     }
 
-    // error = () => {
-
-    // }
-
     render() {
         return (
             <div className = 'login-home'>

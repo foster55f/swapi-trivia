@@ -1,12 +1,12 @@
 import React from 'react';
 import './MovieCard.css';
 
-const MovieCard = () => {
+const MovieCard = ({title}) => {
 
   return (
     <article className="movie-card">
-      <h2 className="character-name">Movie Title</h3>
-      // <img className="movie-img" src={} alt={}/>
+      <h2 className="character-name">{title}</h2>
+      {/* // <img className="movie-img" src={} alt={}/> */}
       // Commented out so that empty attribute fields don't cause bugs until we eventually pass props down into this component
       <div className="movie-details">
         <p>Placeholder for movie details passed from eventual fetch data</p>
@@ -14,7 +14,7 @@ const MovieCard = () => {
         <p>Placeholder</p>
         <p>Placeholder</p>
       </div>
-      <button id="we'll likely have to pass a specific property value here from our fetch data, example: {props.id?}" onClick={() => }>View Characters</button>
+      {/* <button id="we'll likely have to pass a specific property value here from our fetch data, example: {props.id?}" onClick={() => }>View Characters</button> */}
     </article>
   )
 };
