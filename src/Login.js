@@ -24,8 +24,16 @@ class Login extends Component {
 
     login = (event) => {
         event.preventDefault();
-        console.log(this.props.enterUserInfo)
+        if (!this.state.name || this.state.name.length === 0 || !this.state.quote || this.state.quote.length === 0 ) {
+            alert("Please fill out all spaces");
+        }
+        this.setState({ isSignedIn: true })
+        this.props.enterUserInfo(this.state)
     }
+
+    // error = () => {
+       
+    // }
 
     render() {
         return (
@@ -42,7 +50,7 @@ class Login extends Component {
                             <option>jedi master</option>
                         </select>
                     </div>
-                    <button type= 'submit' className = 'loginButton' onClick ={this.login}>Luke I Am Your Father</button>
+                    <button type='submit' className='loginButton' onClick ={this.login}>Luke I Am Your Father</button>
               </form>
             </div>
         )

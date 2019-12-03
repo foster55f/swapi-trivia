@@ -16,8 +16,10 @@ class App extends Component {
     }
   }
 
-  enterUserInfo() {
-    return this.state.user
+  enterUserInfo = (userData) => {
+    this.setState({
+      user:{...userData}
+    })
   }
 
   render() {
