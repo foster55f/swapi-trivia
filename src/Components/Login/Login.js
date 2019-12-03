@@ -32,16 +32,16 @@ class Login extends Component {
     }
 
     // error = () => {
-       
+
     // }
 
     render() {
         return (
-            <div className = 'loginHome'>
+            <div className = 'login-home'>
              <h1 className = 'welcome'>Welcome to Star Wars!!!</h1>
               <form>
                     <input type='text' placeholder='Name' value={this.state.name} name = 'name' onChange={event => this.handleChange(event)} />
-                    <textarea type='text' placeholder='Quote' value={this.state.quote} name = 'quote' onChange={event => this.handleChange(event)}></textarea>         
+                    <textarea type='text' placeholder='Quote' value={this.state.quote} name = 'quote' onChange={event => this.handleChange(event)}></textarea>
                     <div>
                         <label>Select Level</label>
                         <select>
