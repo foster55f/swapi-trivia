@@ -10,11 +10,8 @@ class App extends Component {
     super();
     this.state = {
       flicks: [],
-      user: {
-        name: '',
-        quote: '',
-        ranking: ''
-      }
+      isSignedIn:false,
+      user: {}
     }
   }
 
@@ -25,15 +22,17 @@ class App extends Component {
 
   enterUserInfo = (userData) => {
     this.setState({
-      user:{...userData}
+      user: { ...userData },
+      isSignedIn:true
     })
+    console.log(this.state.user)
   }
 
   render() {
     return (
       <main>
         <div>
-          <Login enterUserInfo={this.enterUserInfo} />
+          <Login enterUserInfo={this.enterUserInfo} />  
           {/* <MovieContainer  flicks = {this.state.flicks}/> */}
           </div>
       </main>
