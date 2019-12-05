@@ -41,7 +41,8 @@ class App extends Component {
         <div>
           <Login enterUserInfo = {this.enterUserInfo}/>
           {/* <MovieContainer foster={['yello', 'dave', 'its', 'all', 'coming', 'together']}/> */}
-          </div>
+          <UserData logOut={this.logOut}/>
+        </div>
       </main>
     )
   }
