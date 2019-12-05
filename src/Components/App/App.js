@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 import './App.css';
 import MovieContainer from '../MovieContainer/MovieContainer';
 import Login from '../Login/Login';
-import {retrieveAllMovies} from '../../fetchCalls'
+import { retrieveAllMovies } from '../../fetchCalls'
 
 
 class App extends Component {
@@ -31,9 +32,10 @@ class App extends Component {
   render() {
     return (
       <main>
+        <Route exact path='/' render={()=><Login enterUserInfo={this.enterUserInfo} />} />
         <div>
           {/* <Login enterUserInfo={this.enterUserInfo} />   */}
-          <MovieContainer  flicks = {this.state.flicks}/>
+          {/* <MovieContainer  flicks = {this.state.flicks}/> */}
           </div>
       </main>
     )
