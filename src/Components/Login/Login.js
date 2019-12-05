@@ -6,13 +6,10 @@ class Login extends Component {
     constructor() {
         super();
         this.state = {
-            user: {
                 name: '',
                 quote: '',
                 ranking: '',
-                isSignedIn: false,
                 error:''
-              }
         }
     }
 
@@ -22,24 +19,12 @@ class Login extends Component {
 
     login = (event) => {
         event.preventDefault();
-        if (!this.state.name || this.state.name.length === 0 || !this.state.quote || this.state.quote.length === 0) {
+        const {name,quote,ranking}=this.state
+        if (!name || name.length === 0 || !quote || quote.length === 0) {
             this.setState({ error: 'Please Fill out all Inputs!!' });
         }
-        this.setState({ isSignedIn: true })
-        this.props.enterUserInfo(this.state)
+        this.props.enterUserInfo({ name,quote,ranking})
     }
-
-    // resetState = () =>{
-    //     this.setState({
-    //         user: {
-    //             name: '',
-    //             quote: '',
-    //             ranking: '',
-    //             isSignedIn: false,
-    //             error:''
-    //           }
-    //     })
-    // }
 
     render() {
         return (
@@ -51,13 +36,13 @@ class Login extends Component {
                     <textarea type='text' placeholder='Quote' value={this.state.quote} name = 'quote' onChange={event => this.handleChange(event)}></textarea>
                     <div>
                         <label>Select Level</label>
-                        <select>
+                        <select value={this.state.ranking} name = 'ranking' onChange={event => this.handleChange(event)}>
                             <option>padawan</option>
                             <option>jedi knight</option>
                             <option>jedi master</option>
                         </select>
                     </div>
-                    <button type='submit' className='loginButton'  onClick ={this.login} >Luke I Am Your Father</button>
+                    <button type='submit' className='loginButton' onClick ={this.login} >Luke I Am Your Father</button>
               </form>
             </div>
         )

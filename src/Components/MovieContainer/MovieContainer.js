@@ -8,6 +8,8 @@ const MovieContainer = (props) => {
         return (
             <MovieCard
                 title={flick.title}
+                number={flick.episode_id}
+                releaseDate = {flick.release_date}
             />
         )
     })
