@@ -32,8 +32,8 @@ class App extends Component {
     return (
       <main>
         <div>
-          <Login enterUserInfo={this.enterUserInfo} />  
-          {/* <MovieContainer  flicks = {this.state.flicks}/> */}
+          {/* <Login enterUserInfo={this.enterUserInfo} />   */}
+          <MovieContainer  flicks = {this.state.flicks}/>
           </div>
       </main>
     )
