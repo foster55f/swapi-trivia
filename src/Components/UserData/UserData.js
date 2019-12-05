@@ -4,9 +4,17 @@ import './UserData.css';
 const UserData = () => {
 
   return (
-    <section className="user-data">
-      <p>Placeholder Text, this needs to be reformatted to include buttons, user values, etc (maybe made into a Header element?)</p>
-    </section>
+    <header className="userdata-component">
+      <div className="users-data">
+        <p className="name-value">Props-name</p>
+        <p className="quotation-value">Props-quotation</p>
+        <p className="selected-ranking">Props-ranking</p>
+      </div>
+      <div className="btns-container">
+        <button className="logout-btn" onClick={() => }>Log Out</button>
+        <button className="show__favorites--btn" onClick={() => }>Show Favorites</button>
+      </div>
+    </header>
   )
 };
 
