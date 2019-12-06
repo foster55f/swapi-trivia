@@ -44,7 +44,7 @@ class Login extends Component {
                     <textarea type='text' placeholder='Quote' value={this.state.quote} name = 'quote' onChange={event => this.handleChange(event)}></textarea>
                     <div>
                         <label>Select Level</label>
-                        <select>
+                        <select value={this.state.ranking} name = 'ranking' onChange={event => this.handleChange(event)}>
                             <option>padawan</option>
                             <option>jedi knight</option>
                             <option>jedi master</option>
