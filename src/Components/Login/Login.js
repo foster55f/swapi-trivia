@@ -9,7 +9,6 @@ class Login extends Component {
                 name: '',
                 quote: '',
                 ranking: '',
-                isSignedIn: false,
                 errors: {}
         }
     }
@@ -25,7 +24,7 @@ class Login extends Component {
         if (!this.state.name || this.state.name.length === 0 || !this.state.quote || this.state.quote.length === 0 ) {
             alert("Please fill out all spaces");
         }
-        this.setState({ name: '', quote: '', ranking: '', isSignedIn: true })
+        this.setState({ name: '', quote: '', ranking: ''})
         this.props.enterUserInfo(this.state)
     }
 
