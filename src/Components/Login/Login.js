@@ -9,33 +9,28 @@ class Login extends Component {
                 name: '',
                 quote: '',
                 ranking: '',
-                errors: {}
+                errors: ''
         }
     }
 
     handleChange(event) {
         this.setState({ [event.target.name]: event.target.value })
-        console.log(this.state.name)
-        console.log(this.state.quote)
     }
 
     login = (event) => {
         event.preventDefault();
-        if (!this.state.name || this.state.name.length === 0 || !this.state.quote || this.state.quote.length === 0 ) {
-            alert("Please fill out all spaces");
+        const {name,quote,ranking}=this.state
+        if (!name || name.length === 0 || !quote || quote.length === 0) {
+            return this.setState({ error: 'Please Fill out all Inputs!!' });
         }
-        this.setState({ name: '', quote: '', ranking: ''})
-        this.props.enterUserInfo(this.state)
+        this.props.enterUserInfo({name,quote,ranking})
     }
-
-    // error = () => {
-
-    // }
 
     render() {
         return (
-            <div className = 'login-home'>
-             <h1 className = 'welcome'>Welcome to Star Wars!!!</h1>
+            <div className ='login-home'>
+             <h1 className ='welcome'>Welcome to Star Wars!!!</h1>
+             <h2>{this.state.error}</h2>
               <form>
                     <input type='text' placeholder='Name' value={this.state.name} name = 'name' onChange={event => this.handleChange(event)} />
                     <textarea type='text' placeholder='Quote' value={this.state.quote} name = 'quote' onChange={event => this.handleChange(event)}></textarea>
