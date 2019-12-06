@@ -4,7 +4,7 @@ import MovieCard from '../MovieCard/MovieCard'
 
 const MovieContainer = (props) => {
     console.log(props.flicks)
-    const allMovies = props.flicks.map(flick => {
+    const allMovies = props.movies.map(flick => {
         return (
             <MovieCard
                 title={flick.title}
