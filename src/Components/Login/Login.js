@@ -6,13 +6,11 @@ class Login extends Component {
     constructor() {
         super();
         this.state = {
-            user: {
                 name: '',
                 quote: '',
                 ranking: '',
                 isSignedIn: false,
                 errors: {}
-            }
         }
     }
 

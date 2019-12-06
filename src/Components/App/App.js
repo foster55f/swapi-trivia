@@ -31,6 +31,8 @@ class App extends Component {
         name: '',
         quote: '',
         ranking: '',
+        isSignedIn: false,
+        errors: {}
       },
       favorites: [],
       clickedFilm: ''
