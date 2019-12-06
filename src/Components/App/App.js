@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import MovieContainer from '../MovieContainer/MovieContainer';
 import Login from '../Login/Login';
+import UserData from '../UserData/UserData';
 
 
 class App extends Component {
