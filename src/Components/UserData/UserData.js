@@ -1,7 +1,7 @@
 import React from 'react';
 import './UserData.css';
 
-const UserData = (props) => {
+const UserData = () => {
 
   return (
     <header className="userdata-component">

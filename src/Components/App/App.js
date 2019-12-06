@@ -12,23 +12,25 @@ class App extends Component {
         name: '',
         quote: '',
         ranking: '',
-        favorites: [],
-        clickedFilm: ''
-      }
+      },
+      favorites: [],
+      clickedFilm: ''
     }
   }
 
   enterUserInfo = (userData) => {
     this.setState({
-      user:{...userData}
+      user: {...userData}
     })
   }
 
   logOut = () => {
     this.setState({
-      name: '',
-      quote: '',
-      ranking: '',
+      user: {
+        name: '',
+        quote: '',
+        ranking: '',
+      },
       favorites: [],
       clickedFilm: ''
     })
@@ -41,7 +43,7 @@ class App extends Component {
         <div>
           <Login enterUserInfo = {this.enterUserInfo}/>
           {/* <MovieContainer foster={['yello', 'dave', 'its', 'all', 'coming', 'together']}/> */}
-          <UserData logOut={this.logOut}/>
+          <UserData logOut={this.logOut} name={this.state.user.name} quote={this.state.user.quote} status={this.state.user.ranking}/>
         </div>
       </main>
     )
