@@ -25,7 +25,7 @@ class Login extends Component {
         if (!this.state.name || this.state.name.length === 0 || !this.state.quote || this.state.quote.length === 0 ) {
             alert("Please fill out all spaces");
         }
-        this.setState({ isSignedIn: true })
+        this.setState({ name: '', quote: '', ranking: '', isSignedIn: true })
         this.props.enterUserInfo(this.state)
     }
 

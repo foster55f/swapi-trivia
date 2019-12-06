@@ -14,8 +14,6 @@ class App extends Component {
         quote: '',
         ranking: '',
       },
-      favorites: [],
-      clickedFilm: ''
     }
   }
 
@@ -34,8 +32,6 @@ class App extends Component {
         isSignedIn: false,
         errors: {}
       },
-      favorites: [],
-      clickedFilm: ''
     })
   }
 
