@@ -1,8 +1,16 @@
+.login-section {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
 .login-home {
   background-color: #8B837B;
   border: 1px solid #5ae273;
   border-radius: 400px;
-  height: 50%;
+  height: 300px;
   width: 360px;
 }
 
