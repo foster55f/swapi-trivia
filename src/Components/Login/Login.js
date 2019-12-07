@@ -36,11 +36,11 @@ class Login extends Component {
                 <input type='text' placeholder='Name' value={this.state.name} name = 'name' onChange={event => this.handleChange(event)} />
                 <textarea type='text' placeholder='Quote' value={this.state.quote} name = 'quote' onChange={event => this.handleChange(event)}></textarea>
                 <div>
-                  <label>Select Level</label>
+                  <label>Select Level:</label>
                     <select value={this.state.ranking} name = 'ranking' onChange={event => this.handleChange(event)}>
-                      <option>padawan</option>
-                      <option>jedi knight</option>
-                      <option>jedi master</option>
+                      <option>Padawan</option>
+                      <option>Jedi knight</option>
+                      <option>Jedi master</option>
                     </select>
                 </div>
                 <button type='submit' className='loginButton' onClick ={this.login}>Luke I Am Your Father</button>
