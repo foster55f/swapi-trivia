@@ -21,7 +21,7 @@ class Login extends Component {
         event.preventDefault();
         const {name,quote,ranking}=this.state
         if (!name || name.length === 0 || !quote || quote.length === 0) {
-            return this.setState({ error: 'Please Fill out all Inputs!!' });
+            return this.setState({ error: 'Please fill out all inputs!!' });
         }
         this.props.enterUserInfo({name,quote,ranking})
     }

@@ -33,6 +33,7 @@ form {
 }
 
 input {
+  border: .1px solid #5ae273;
   font-size: 20px;
   height: 20px;
   text-indent: 2px;
@@ -40,6 +41,7 @@ input {
 }
 
 textarea {
+  border: .1px solid #5ae273;
   font-size: 20px;
   height: 40px;
   text-indent: 2px;
@@ -53,6 +55,7 @@ label {
 }
 
 select {
+  border: 1px solid #5ae273;
   font-size: 15px;
   height: 25px;
   width: 120px;
@@ -63,6 +66,5 @@ button {
 }
 
 button:hover {
-  background-color: #776D77;
   border: .1px solid #5ae273;
 }
