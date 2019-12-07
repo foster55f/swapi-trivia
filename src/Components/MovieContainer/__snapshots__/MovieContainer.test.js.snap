@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieContainer should match the snapshot with all data passed in correctly 1`] = `
+<div
+  className="movie-container"
+>
+  <MovieCard
+    key="55"
+    number={55}
+    releaseDate={1981}
+    title="Big Lebowski"
+  />
+  <MovieCard
+    key="155"
+    number={155}
+    releaseDate={2055}
+    title="Major League"
+  />
+</div>
+`;
