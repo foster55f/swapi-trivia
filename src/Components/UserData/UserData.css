@@ -22,9 +22,10 @@
 }
 
 .menu-btn:hover {
-  color: #5C5E5F;
+  background-color: #5C5E5F;
+  color: white;
 }
 
 .user-values {
-  background-color: #5ae273;
+  color: #5ae273;
 }
