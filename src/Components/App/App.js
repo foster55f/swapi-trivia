@@ -4,7 +4,7 @@ import './App.css';
 import MovieContainer from '../MovieContainer/MovieContainer';
 import Login from '../Login/Login';
 import UserData from '../UserData/UserData';
-import { retrieveAllMovies, retrieveAllCharacters } from '../../fetchCalls';
+import { retrieveAllMovies, retrieveAllCharacters,getCharacterData } from '../../fetchCalls';
 
 
 class App extends Component {
@@ -31,7 +31,6 @@ class App extends Component {
   }
 
   findCharacters(characters) {
-    // console.log(cha)
     retrieveAllCharacters(characters.slice(0,10))
       // .then(response => this.setState({ selectedCharacters: response }))
   }

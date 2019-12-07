@@ -3,7 +3,6 @@ import './MovieContainer.css'
 import MovieCard from '../MovieCard/MovieCard'
 
 const MovieContainer = (props) => {
-    console.log(props)
     const allMovies = props.movies.map(flick => {
         return (
             <MovieCard
