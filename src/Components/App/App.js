@@ -22,6 +22,7 @@ class App extends Component {
   componentDidMount() {
     retrieveAllMovies('https://swapi.co/api/films/')
       .then(flicks => this.setState({ flicks }))
+      console.log(this.state)
   }
 
   selectFlick = (id) => {
@@ -64,7 +65,9 @@ class App extends Component {
         {this.state.flicks && (
           <MovieContainer movies={this.state.flicks} selectFlick={this.selectFlick}/>
         )}
-        <UserData logOut={this.logOut} name={this.state.user.name} quote={this.state.user.quote} ranking={this.state.user.ranking}/>
+        {isSignedIn && this.state.flicks && (
+          <UserData logOut={this.logOut} name={this.state.user.name} quote={this.state.user.quote} ranking={this.state.user.ranking}/>
+        )}
       </main>
     )
   }

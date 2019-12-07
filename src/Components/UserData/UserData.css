@@ -1,0 +1,31 @@
+.userdata-component {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: white;
+  width: 100%;
+}
+
+.users-data {
+  margin-left: 10px;
+}
+
+.btns-container {
+  align-items: center;
+  color: #5ae273;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-right: 10px;
+  width: 160px;
+}
+
+.menu-btn:hover {
+  background-color: #5C5E5F;
+  color: white;
+}
+
+.user-values {
+  color: #5ae273;
+}
