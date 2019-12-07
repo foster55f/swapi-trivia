@@ -49,7 +49,7 @@ class App extends Component {
         {!isSignedIn && (
           <Login enterUserInfo={this.enterUserInfo}/>
         )}
-        {isSignedIn && this.state.flicks && (
+        {this.state.flicks && (
           <MovieContainer movies={this.state.flicks}/>
         )}
         <UserData logOut={this.logOut} name={this.state.user.name} quote={this.state.user.quote} ranking={this.state.user.ranking}/>
