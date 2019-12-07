@@ -5,7 +5,7 @@ const MovieCard = ({title, number, releaseDate}) => {
 
   return (
     <article className="movie-card">
-    {/*<img src={} alt='star wars film poster'/> */}
+      <img src="../../Images/BabyYoda.jpg" alt='star wars film poster'/>
       <div className="movie-content">
         <h2 className="movie-name">{title}</h2>
         <h2 className="movie-number">{number}</h2>
