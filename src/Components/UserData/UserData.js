@@ -1,12 +1,20 @@
 import React from 'react';
 import './UserData.css';
 
-const UserData = () => {
+const UserData = (props) => {
 
   return (
-    <section className="user-data">
-      <p>Placeholder Text, this needs to be reformatted to include buttons, user values, etc (maybe made into a Header element?)</p>
-    </section>
+    <header className="userdata-component">
+      <div className="users-data">
+        <p className="name-value">1{props.name}</p>
+        <p className="quotation-value">2{props.quote}</p>
+        <p className="selected-ranking">3{props.ranking}</p>
+      </div>
+      <div className="btns-container">
+        <button className="menu-btn" id="logout-btn" onClick={() => props.logOut()}>Log Out</button>
+        <button className="menu-btn" id="show__favorites--btn">Show Favorites</button>
+      </div>
+    </header>
   )
 };
 

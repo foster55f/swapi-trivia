@@ -3,18 +3,19 @@ import './MovieContainer.css'
 import MovieCard from '../MovieCard/MovieCard'
 
 const MovieContainer = (props) => {
-    console.log(props.flicks)   
-    const allMovies = props.flicks.map(flick => {
+    console.log(props.flicks)
+    const allMovies = props.movies.map(flick => {
         return (
             <MovieCard
                 title={flick.title}
                 number={flick.episode_id}
+                key={flick.episode_id}
                 releaseDate = {flick.release_date}
             />
         )
     })
     return (
-        <div>
+        <div className="movie-container">
             {allMovies}
         </div>
     )

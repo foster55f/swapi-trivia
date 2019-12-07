@@ -3,7 +3,8 @@ import { Route } from 'react-router-dom';
 import './App.css';
 import MovieContainer from '../MovieContainer/MovieContainer';
 import Login from '../Login/Login';
-import { retrieveAllMovies } from '../../fetchCalls'
+import UserData from '../UserData/UserData';
+import { retrieveAllMovies } from '../../fetchCalls';
 
 
 class App extends Component {
@@ -12,7 +13,7 @@ class App extends Component {
     this.state = {
       flicks: [],
       isSignedIn: false,
-      user: {}
+      user: {},
     }
   }
 
@@ -30,6 +31,17 @@ class App extends Component {
     console.log(this.state.user)
   }
 
+  logOut = () => {
+    this.setState({
+      user: {
+        name: '',
+        quote: '',
+        ranking: ''
+      },
+      isSignedIn: false
+    })
+  }
+
   render() {
     const { isSignedIn } = this.state
     return (
@@ -37,9 +49,10 @@ class App extends Component {
         {!isSignedIn && (
           <Login enterUserInfo={this.enterUserInfo}/>
         )}
-        {isSignedIn && this.state.flicks && ( 
+        {isSignedIn && this.state.flicks && (
           <MovieContainer movies={this.state.flicks}/>
         )}
+        <UserData logOut={this.logOut} name={this.state.user.name} quote={this.state.user.quote} ranking={this.state.user.ranking}/>
       </main>
     )
   }

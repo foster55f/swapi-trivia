@@ -9,12 +9,12 @@ class Login extends Component {
                 name: '',
                 quote: '',
                 ranking: '',
-                error:''
+                errors: ''
         }
     }
 
     handleChange(event) {
-        this.setState({ [event.target.name]: event.target.value })       
+        this.setState({ [event.target.name]: event.target.value })
     }
 
     login = (event) => {
@@ -23,14 +23,14 @@ class Login extends Component {
         if (!name || name.length === 0 || !quote || quote.length === 0) {
             return this.setState({ error: 'Please Fill out all Inputs!!' });
         }
-        this.props.enterUserInfo({ name,quote,ranking})
+        this.props.enterUserInfo({name,quote,ranking})
     }
 
     render() {
         return (
-            <div className = 'login-home'>
-                <h1 className='welcome'>Welcome to Star Wars!!!</h1>
-                <h2>{this.state.error}</h2>
+            <div className ='login-home'>
+             <h1 className ='welcome'>Welcome to Star Wars!!!</h1>
+             <h2>{this.state.error}</h2>
               <form>
                     <input type='text' placeholder='Name' value={this.state.name} name = 'name' onChange={event => this.handleChange(event)} />
                     <textarea type='text' placeholder='Quote' value={this.state.quote} name = 'quote' onChange={event => this.handleChange(event)}></textarea>
@@ -42,7 +42,7 @@ class Login extends Component {
                             <option>jedi master</option>
                         </select>
                     </div>
-                    <button type='submit' className='loginButton' onClick ={this.login} >Luke I Am Your Father</button>
+                    <button type='submit' className='loginButton' onClick ={this.login}>Luke I Am Your Father</button>
               </form>
             </div>
         )
