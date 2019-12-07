@@ -1,0 +1,11 @@
+.movie-card {
+  background-color: orange;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  height: 250px;
+  margin: 10px;
+  padding: 20px;
+  text-align: center;
+  width: 200px;
+}
