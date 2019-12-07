@@ -4,7 +4,7 @@ import './App.css';
 import MovieContainer from '../MovieContainer/MovieContainer';
 import Login from '../Login/Login';
 import UserData from '../UserData/UserData';
-import { retrieveAllMovies } from '../../fetchCalls';
+import { retrieveAllMovies, retrieveAllCharacters } from '../../fetchCalls';
 
 
 class App extends Component {
@@ -12,15 +12,28 @@ class App extends Component {
     super();
     this.state = {
       flicks: [],
+      selectedFlick: {},
+      selectedCharacters:[],
       isSignedIn: false,
       user: {},
     }
   }
 
   componentDidMount() {
-    console.log('hiii')
     retrieveAllMovies('https://swapi.co/api/films/')
       .then(flicks => this.setState({ flicks }))
+  }
+
+  selectFlick = (id) => {
+    console.log(id)
+    this.setState({selectedFlick: this.state.flicks[id-1]})
+    this.findCharacters(this.state.flicks[id-1].characters)
+  }
+
+  findCharacters(characters) {
+    // console.log(cha)
+    retrieveAllCharacters(characters.slice(0,10))
+      // .then(response => this.setState({ selectedCharacters: response }))
   }
 
   enterUserInfo = (userData) => {
@@ -50,7 +63,7 @@ class App extends Component {
           <Login enterUserInfo={this.enterUserInfo}/>
         )}
         {this.state.flicks && (
-          <MovieContainer movies={this.state.flicks}/>
+          <MovieContainer movies={this.state.flicks} selectFlick={this.selectFlick}/>
         )}
         <UserData logOut={this.logOut} name={this.state.user.name} quote={this.state.user.quote} ranking={this.state.user.ranking}/>
       </main>

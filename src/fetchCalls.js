@@ -5,12 +5,21 @@ export const retrieveAllMovies = (url) => {
         .catch(error => console.log(error))
 }
 
-export const retrieveAllCharacters = (url) => {
-    return fetch(url)
+export const retrieveAllCharacters = (characters) => {
+    const characterInfo = characters.map(character => {
+        return fetch(character)
+            .then(response => response.json())
+            .then(data => getHomeWorld(data.homeworld))
+    })
+}
+
+const getHomeWorld = (homeworldUrl) => {
+    return fetch(homeworldUrl)
         .then(response => response.json())
-        .then(movies => {
-            
+        .then(data => {
+            return ({
+                home: data.name,
+                population: data.population
+            })
         })
-    
-        // .catch(error => console.log(error))
 }

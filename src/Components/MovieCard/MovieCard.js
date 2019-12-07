@@ -1,14 +1,14 @@
 import React from 'react';
 import './MovieCard.css';
 
-const MovieCard = ({title, number, releaseDate}) => {
+const MovieCard = ({id, title, number, releaseDate, selectFlick}) => {
 
   return (
     <article className="movie-card">
       <h2 className="movie-name">{title}</h2>
       <h2 className="movie-number">{number}</h2>
       <h2 className="movie-releaseDate">{releaseDate}</h2>
-      <button>View Characters</button>
+      <button className="view-characters-button" value={number} id={id} onClick={event=>selectFlick(event.target.id)}>View Characters</button>
 
       {/* // <img className="movie-img" src={} alt={}/> */}
       {/* // Commented out so that empty attribute fields don't cause bugs until we eventually pass props down into this component
