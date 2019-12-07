@@ -1,5 +1,6 @@
 .login-home {
   background-color: #8B837B;
+  border: 1px solid #5ae273;
   border-radius: 400px;
   height: 50%;
   width: 360px;
@@ -59,4 +60,9 @@ select {
 
 button {
   height: 40px;
+}
+
+button:hover {
+  background-color: #776D77;
+  border: .1px solid #5ae273;
 }
