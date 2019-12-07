@@ -5,10 +5,13 @@ const MovieCard = ({title, number, releaseDate}) => {
 
   return (
     <article className="movie-card">
-      <h2 className="movie-name">{title}</h2>
-      <h2 className="movie-number">{number}</h2>
-      <h2 className="movie-releaseDate">{releaseDate}</h2>
-      <button>View Characters</button>
+    {/*<img src={} alt='star wars film poster'/> */}
+      <div className="movie-content">
+        <h2 className="movie-name">{title}</h2>
+        <h2 className="movie-number">{number}</h2>
+        <h2 className="movie-releaseDate">{releaseDate}</h2>
+        <button>View Characters</button>
+      </div>
 
       {/* // <img className="movie-img" src={} alt={}/> */}
       {/* // Commented out so that empty attribute fields don't cause bugs until we eventually pass props down into this component
