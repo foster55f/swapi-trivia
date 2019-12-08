@@ -4,6 +4,7 @@ import './App.css';
 import MovieContainer from '../MovieContainer/MovieContainer';
 import Login from '../Login/Login';
 import UserData from '../UserData/UserData';
+import ScrollingText from '../ScrollingText/ScrollingText';
 import { retrieveAllMovies, retrieveAllCharacters,getCharacterData } from '../../fetchCalls';
 
 
@@ -22,7 +23,6 @@ class App extends Component {
   componentDidMount() {
     retrieveAllMovies('https://swapi.co/api/films/')
       .then(flicks => this.setState({ flicks }))
-      console.log(this.state)
   }
 
   selectFlick = (id) => {
@@ -62,12 +62,14 @@ class App extends Component {
         {!isSignedIn && (
           <Login enterUserInfo={this.enterUserInfo}/>
         )}
-        {this.state.flicks && (
+
+        {isSignedIn && this.state.flicks && (
           <MovieContainer movies={this.state.flicks} selectFlick={this.selectFlick}/>
         )}
-        {isSignedIn && this.state.flicks && (
-          <UserData logOut={this.logOut} name={this.state.user.name} quote={this.state.user.quote} ranking={this.state.user.ranking}/>
-        )}
+
+        <UserData logOut={this.logOut} name={this.state.user.name} quote={this.state.user.quote} ranking={this.state.user.ranking}/>
+
+        <ScrollingText />
       </main>
     )
   }

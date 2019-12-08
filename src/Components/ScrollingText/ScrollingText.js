@@ -6,9 +6,21 @@ const ScrollingText = () => {
   return (
     <section>
       <div className="scrolling-container">
-        <div className="scroll-content">
+        <div className="scrolling-content">
           <h4>Specific Episode Placeholder</h4>
-          <p>Scrolling Text</p>
+          <p>
+          Scrolling Text Place
+          asdfasdf
+          asdfasdf
+          asdfasdf
+          asdfasdfsadfkjn
+          asdfkljasdf;j
+          asdkljfasdlkj
+          asdkfjhasdkljhf
+          as;lfj;asdkfjhasdkljhfasdlkfjh
+          asdhjlfadljhflasd
+          asdlkfjasdlkhf
+          </p>
         </div>
       </div>
     </section>

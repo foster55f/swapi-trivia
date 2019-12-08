@@ -5,15 +5,14 @@
   width: 100%;
 }
 
-.scrolling-component {
+.scrolling-container {
+  background: black;
   color: yellow;
   display: flex;
   justify-content: center;
   height: 800px;
-  /* Described as a 'magic' pixel number for our purposes (along with the persective value)*/
   perspective: 400px;
   position: relative;
-  /* Related to 3D manipulation */
   text-align: justify;
 
 }
@@ -24,7 +23,6 @@
   /* Reference URL - https://css-tricks.com/snippets/css/star-wars-crawl-text/ */
   position: relative;
   top: -100px;
-  /* top: 9999px; */
   transform-origin: 50% 100%;
 }
 
