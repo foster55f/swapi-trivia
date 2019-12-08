@@ -1,4 +1,5 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
+import {Link} from 'react-router-dom'
 import './Login.css'
 
 
@@ -23,7 +24,8 @@ class Login extends Component {
         if (!name || name.length === 0 || !quote || quote.length === 0) {
             return this.setState({ error: 'Please fill out all inputs!!' });
         }
-        this.props.enterUserInfo({name,quote,ranking})
+      this.props.enterUserInfo({ name, quote, ranking })
+      
     }
 
     render() {
@@ -44,7 +46,9 @@ class Login extends Component {
                         <option>Jedi master</option>
                       </select>
                   </div>
-                  <button type='submit' className='loginButton' onClick ={this.login}>Luke I Am Your Father</button>
+                  <Link to={'/movies'}>
+                  <button type='submit' className='loginButton' onClick={this.login}>Luke I Am Your Father</button>
+                  </Link>
                 </form>
               </div>
             </div>
