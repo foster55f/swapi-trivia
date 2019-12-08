@@ -1,14 +1,27 @@
 import React from 'react';
 import './CharacterContainer.css';
+import CharacterCard from '../CharacterCard/CharacterCard';
+
 
 const CharacterContainer = (props) => {
   console.log(props)
-// const allCharcters = ()=>
+  const allCharacters = props.selectedCharacters.map((character, i) => {
+    console.log(character)
+    return (
+        <CharacterCard
+            name={character.name}
+            homeworld={character.homeworld}
+            population={character.population}
+            species={character.species}
+            relatedFilms={character.relatedFilms}
+            key={i}
+        />
+    )
+})
   return (
-    <section className="character-container">
-      <p>Arrive here after click on View Characters button</p>
-      <p>Needs to contain room for 10 character cards and the scrolling text component</p>
-    </section>
+    <div className="character-container">
+    {allCharacters}
+</div>
   )
 };
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import { Route, Redirect, Router } from 'react-router-dom';
 import './App.css';
 import MovieContainer from '../MovieContainer/MovieContainer';
 import CharacterContainer from '../CharacterContainer/CharacterContainer';
@@ -42,8 +42,9 @@ class App extends Component {
   enterUserInfo = (userData) => {
     this.setState({
       user: { ...userData },
-      isSignedIn: true
+      isSignedIn: true,
     })
+    console.log(Router)
     console.log(this.state.user)
   }
 
@@ -67,7 +68,7 @@ class App extends Component {
         )}
         {this.state.flicks && 
           // <Redirect to='/movies'/>
-          <Route exact path='/' render={() => <MovieContainer movies={this.state.flicks} selectFlick={this.selectFlick} />}/>
+          <Route exact path='/movies' render={() => <MovieContainer movies={this.state.flicks} selectFlick={this.selectFlick} />}/>
         }
         {isSignedIn && this.state.flicks && (
           <UserData logOut={this.logOut} name={this.state.user.name} quote={this.state.user.quote} ranking={this.state.user.ranking}/>
