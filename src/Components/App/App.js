@@ -60,7 +60,7 @@ class App extends Component {
     return (
       <main>
         {!isSignedIn && (
-          <Login enterUserInfo={this.enterUserInfo}/>
+          <Route exact path='/' render = {() => <Login enterUserInfo={this.enterUserInfo} />}/>
         )}
         {this.state.flicks && (
           <MovieContainer movies={this.state.flicks} selectFlick={this.selectFlick}/>
