@@ -1,4 +1,5 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
+import {Link} from 'react-router-dom'
 import './Login.css'
 
 
@@ -45,7 +46,9 @@ class Login extends Component {
                         <option>Jedi master</option>
                       </select>
                   </div>
-                  <button type='submit' className='loginButton' onClick ={this.login}>Luke I Am Your Father</button>
+                  <Link to={'/movies'}>
+                  <button type='submit' className='loginButton' onClick={this.login}>Luke I Am Your Father</button>
+                  </Link>
                 </form>
               </div>
             </div>

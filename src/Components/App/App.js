@@ -67,7 +67,6 @@ class App extends Component {
           <Route exact path='/' render = {() => <Login enterUserInfo={this.enterUserInfo} />}/>
         )}
         {this.state.flicks && 
-          // <Redirect to='/movies'/>
           <Route exact path='/movies' render={() => <MovieContainer movies={this.state.flicks} selectFlick={this.selectFlick} />}/>
         }
         {isSignedIn && this.state.flicks && (
