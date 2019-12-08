@@ -1,8 +1,9 @@
 import React from 'react';
 import './CharacterContainer.css';
 
-const CharacterContainer = () => {
-
+const CharacterContainer = (props) => {
+  console.log(props)
+// const allCharcters = ()=>
   return (
     <section className="character-container">
       <p>Arrive here after click on View Characters button</p>

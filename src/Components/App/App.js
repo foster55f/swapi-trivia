@@ -34,7 +34,7 @@ class App extends Component {
 
   findCharacters(characters) {
     retrieveAllCharacters(characters.slice(0,10))
-      .then(response => console.log(response))
+      .then(response => this.setState({ selectedCharacters: response }))
       .then(()=> this.forceUpdate())
     console.log(this.state.selectedCharacters)
   }
