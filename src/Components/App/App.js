@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import './App.css';
 import MovieContainer from '../MovieContainer/MovieContainer';
+import CharacterContainer from '../CharacterContainer/CharacterContainer';
 import Login from '../Login/Login';
 import UserData from '../UserData/UserData';
 import { retrieveAllMovies, retrieveAllCharacters,getCharacterData } from '../../fetchCalls';
@@ -33,7 +34,9 @@ class App extends Component {
 
   findCharacters(characters) {
     retrieveAllCharacters(characters.slice(0,10))
-      // .then(response => this.setState({ selectedCharacters: response }))
+      .then(response => console.log(response))
+      .then(()=> this.forceUpdate())
+    console.log(this.state.selectedCharacters)
   }
 
   enterUserInfo = (userData) => {
@@ -62,12 +65,16 @@ class App extends Component {
         {!isSignedIn && (
           <Route exact path='/' render = {() => <Login enterUserInfo={this.enterUserInfo} />}/>
         )}
-        {this.state.flicks && (
-          <MovieContainer movies={this.state.flicks} selectFlick={this.selectFlick}/>
-        )}
+        {this.state.flicks && 
+          // <Redirect to='/movies'/>
+          <Route exact path='/' render={() => <MovieContainer movies={this.state.flicks} selectFlick={this.selectFlick} />}/>
+        }
         {isSignedIn && this.state.flicks && (
           <UserData logOut={this.logOut} name={this.state.user.name} quote={this.state.user.quote} ranking={this.state.user.ranking}/>
         )}
+        {this.state.selectedCharacters&&(
+          <CharacterContainer selectedCharacters={this.state.selectedCharacters}/>)
+        }
       </main>
     )
   }
