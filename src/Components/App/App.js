@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Redirect, Router } from 'react-router-dom';
 import './App.css';
 import MovieContainer from '../MovieContainer/MovieContainer';
+import CharacterContainer from '../CharacterContainer/CharacterContainer';
 import Login from '../Login/Login';
 import UserData from '../UserData/UserData';
 import ScrollingText from '../ScrollingText/ScrollingText';
@@ -33,14 +34,17 @@ class App extends Component {
 
   findCharacters(characters) {
     retrieveAllCharacters(characters.slice(0,10))
-      // .then(response => this.setState({ selectedCharacters: response }))
+      .then(response => this.setState({ selectedCharacters: response }))
+      .then(()=> this.forceUpdate())
+    console.log(this.state.selectedCharacters)
   }
 
   enterUserInfo = (userData) => {
     this.setState({
       user: { ...userData },
-      isSignedIn: true
+      isSignedIn: true,
     })
+    console.log(Router)
     console.log(this.state.user)
   }
 
@@ -57,20 +61,22 @@ class App extends Component {
 
   render() {
     const { isSignedIn } = this.state
-    return (
-      <main>
-        {!isSignedIn && (
-          <Login enterUserInfo={this.enterUserInfo}/>
-        )}
-
-        {isSignedIn && this.state.flicks && (
-          <MovieContainer movies={this.state.flicks} selectFlick={this.selectFlick}/>
-        )}
-
-        <UserData logOut={this.logOut} name={this.state.user.name} quote={this.state.user.quote} ranking={this.state.user.ranking}/>
-
-        <ScrollingText />
-      </main>
+      return (
+        <main>
+          {!isSignedIn && (
+            <Route exact path='/' render = {() => <Login enterUserInfo={this.enterUserInfo} />}/>
+          )}
+          {this.state.flicks &&
+            <Route exact path='/movies' render={() => <MovieContainer movies={this.state.flicks} selectFlick={this.selectFlick} />}/>
+          }
+          {isSignedIn && this.state.flicks && (
+            <UserData logOut={this.logOut} name={this.state.user.name} quote={this.state.user.quote} ranking={this.state.user.ranking}/>
+          )}
+          {this.state.selectedCharacters&&(
+            <CharacterContainer selectedCharacters={this.state.selectedCharacters}/>)
+          }
+          <ScrollingText />
+        </main>
     )
   }
 }

@@ -14,8 +14,8 @@ export const retrieveAllCharacters = (characters) => {
                 name: character[0],
                 homeWorld: character[1].home,
                 population: character[1].population,
-                species: console.log(character)
-            
+                species: character[2].species,
+                relatedFilms:character[3]
             }))
     })
     return Promise.all(characterInfo)
@@ -27,11 +27,9 @@ const getCharacterData = (url) => {
         .then(character => {
             const { name } = character;
             const homeWorld = getHomeWorld(character.homeworld);
-            const population = getPopulation(character.population);
             const species = getSpecies(character.species);
-            console.log(homeWorld)
-                // const films = getFilms(charcter.films)
-                return Promise.all([name, homeWorld])
+            const films = getrelatedFilms(character.films)
+                return Promise.all([name, homeWorld, species, films])
         })
 }
 
@@ -46,14 +44,27 @@ const getHomeWorld = (homeworldUrl) => {
         })
 }
     
-const getPopulation = (populationUrl) => {
-        return fetch(populationUrl)
-            .then(response => response.json())
-            .then(data => data.population)
-}
 
 const getSpecies = (speciesUrl) => {
     return fetch(speciesUrl)
         .then(response => response.json())
-        .then(data => data)
+        .then(data =>   {
+            return ({
+                species: data.name,
+            })
+        })
+}
+
+const getrelatedFilms = (films) => {
+    const filmData = films.map(film => {
+        return getFilmName(film)
+        .then(film => film)
+    })
+    return Promise.all(filmData)
+}
+
+const getFilmName = (url) => {
+    return fetch(url)
+        .then(response => response.json())
+        .then(data => data.title)
 }

@@ -1,21 +1,17 @@
 import React from 'react';
 import './CharacterCard.css';
 
-const CharacterCard = () => {
-
+const CharacterCard = ({name,homeworld,population,species,relatedfilms}) => {
+console.log(name)
   return (
     <article className="character-card">
-      <h3 className="character-name">Character Name</h3>
-      // <img className="character-img" src={} alt={}/>
-      // Commented out so that empty attribute fields don't cause bugs until we eventually pass props down into this component
-      <div className="character-details">
-        <p>Homeworld</p>
-        <p>Homeworld Population</p>
-        <p>Species</p>
-        <p>Related Films (Maybe later modify to ul, etc)</p>
-      </div>
-      <button id="" onClick={() => }>Favorite Button</button>
-    </article>
+      <h2 className="character-name">{name}</h2>
+      <h2 className="character-homeworld">{homeworld}</h2>
+      <h2 className="character-population">{population}</h2>
+      <h2 className="character-species">{species}</h2>
+      <h2 className="character-relatedfilms">{relatedfilms}</h2>
+      <button>View Characters</button>
+</article>
   )
 };
 
