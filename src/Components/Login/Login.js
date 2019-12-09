@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
+import PropTypes from 'prop-types';
 import './Login.css'
 
 
@@ -25,7 +26,7 @@ class Login extends Component {
             return this.setState({ error: 'Please fill out all inputs!!' });
         }
       this.props.enterUserInfo({ name, quote, ranking })
-      
+
     }
 
     render() {
@@ -58,3 +59,7 @@ class Login extends Component {
 }
 
 export default Login
+
+Login.propTypes = {
+  
+}
