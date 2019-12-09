@@ -1,17 +1,22 @@
 .movie-card {
   align-items: center;
-  background: linear-gradient(rgba(0, 0, 1, .1), rgba(0, 1, .7, .25)), url("../../Images/Vader.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../Images/Vader.jpg");
   background-blend-mode: saturation;
   background-size: 100% 100%;
-  border: 2px solid #5ae273;
-  box-shadow: 0 0 15px #F8E321;
+  background-color: #5C5E5F;
+  background-blend-mode: screen, difference, darken;
+  box-shadow: 8px 8px 30px white;
   display: flex;
   flex-direction: column;
-  height: 150px;
+  height: 175px;
   margin: 20px;
   padding: 20px;
   justify-content: space-around;
-  width: 200px;
+  width: 165px;
+}
+
+.movie-card:hover {
+  box-shadow: 0 0 10px grey;
 }
 
 h1 {
@@ -19,7 +24,7 @@ h1 {
 }
 
 h2 {
-  color: #F8E321;
+  color: white;
   font-size: 20px;
 }
 

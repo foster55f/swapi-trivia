@@ -22,7 +22,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    retrieveAllMovies('https://swapi.co/api/films/')
+    retrieveAllMovies('https://swapi.co/api/films/')  
       .then(flicks => this.setState({ flicks }))
   }
 
@@ -67,7 +67,7 @@ class App extends Component {
             <Route exact path='/' render = {() => <Login enterUserInfo={this.enterUserInfo} />}/>
           )}
           {this.state.flicks &&
-            <Route exact path='/movies' render={() => <MovieContainer movies={this.state.flicks} selectFlick={this.selectFlick} />}/>
+            <Route exact path='/' render={() => <MovieContainer movies={this.state.flicks} selectFlick={this.selectFlick} />}/>
           }
           {isSignedIn && this.state.flicks && (
             <UserData logOut={this.logOut} name={this.state.user.name} quote={this.state.user.quote} ranking={this.state.user.ranking}/>
