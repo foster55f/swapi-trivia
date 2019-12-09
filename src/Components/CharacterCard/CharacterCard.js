@@ -10,7 +10,7 @@ console.log(name)
       <h2 className="character-homeworld">{homeworld}</h2>
       <h2 className="character-population">{population}</h2>
       <h2 className="character-species">{species}</h2>
-      <h2 className="character-relatedfilms">{relatedfilms}</h2>
+      {/* <h2 className="character-relatedfilms">{relatedfilms}</h2> */}
       <button>View Characters</button>
 </article>
   )
