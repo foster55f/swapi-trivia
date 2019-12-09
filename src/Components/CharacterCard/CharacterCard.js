@@ -1,7 +1,7 @@
 import React from 'react';
 import './CharacterCard.css';
 
-const CharacterCard = ({name,homeworld,population,species,relatedfilms}) => {
+const CharacterCard = ({name,homeworld,population,species,relatedfilms,key}) => {
 console.log(name)
   return (
     <article className="character-card">

@@ -15,9 +15,11 @@ const MovieContainer = (props) => {
             />
         )
     })
+    const loader = <span>'loading...'</span>
     return (
         <div className="movie-container">
-            {allMovies}
+            {allMovies.length > 0 && allMovies}
+            {allMovies.length === 0 && loader}
         </div>
     )
 }

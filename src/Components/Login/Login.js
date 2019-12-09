@@ -46,9 +46,9 @@ class Login extends Component {
                         <option>Jedi master</option>
                       </select>
                   </div>
-                  <Link to={'/movies'}>
+                  <Link to={'/movies'}>click me</Link>
                   <button type='submit' className='loginButton' onClick={this.login}>Luke I Am Your Father</button>
-                  </Link>
+                  
                 </form>
               </div>
             </div>
