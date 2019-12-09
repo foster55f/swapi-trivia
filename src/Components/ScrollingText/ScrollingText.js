@@ -1,6 +1,6 @@
 import React from 'react';
 import './ScrollingText.css';
-
+import PropTypes from 'prop-types';
 const ScrollingText = () => {
 
   return (

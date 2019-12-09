@@ -1,6 +1,7 @@
 import React from 'react'
 import './MovieContainer.css'
 import MovieCard from '../MovieCard/MovieCard'
+import PropTypes from 'prop-types';
 
 const MovieContainer = (props) => {
     const allMovies = props.movies.map(flick => {
@@ -24,5 +25,7 @@ const MovieContainer = (props) => {
 
 export default MovieContainer
 
-
-// Needs to include the UserData/Menu component (haven't decided on name / format yet), with logout and view favorites buttons
+MovieContainer.propTypes = {
+  movies: PropTypes.array,
+  selectFlick: PropTypes.func
+}

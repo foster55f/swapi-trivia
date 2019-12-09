@@ -1,5 +1,6 @@
 import React from 'react';
 import './UserData.css';
+import PropTypes from 'prop-types';
 
 const UserData = (props) => {
 
@@ -19,3 +20,10 @@ const UserData = (props) => {
 };
 
 export default UserData;
+
+UserData.propTypes = {
+  logOut: PropTypes.func,
+  name: PropTypes.string,
+  quote: PropTypes.string,
+  ranking: PropTypes.string
+}

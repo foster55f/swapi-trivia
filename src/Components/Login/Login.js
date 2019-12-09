@@ -61,5 +61,5 @@ class Login extends Component {
 export default Login
 
 Login.propTypes = {
-  
+  enterUserInfo: PropTypes.func
 }
