@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CharacterCard should match the snapshot with all data passed correctly 1`] = `
+<article
+  className="character-card"
+>
+  <h2
+    className="character-name"
+  >
+    Foster
+  </h2>
+  <h2
+    className="character-homeworld"
+  >
+    Big Apple
+  </h2>
+  <h2
+    className="character-population"
+  >
+    55555
+  </h2>
+  <h2
+    className="character-species"
+  >
+    Alien
+  </h2>
+  <h2
+    className="character-relatedfilms"
+  />
+  <button>
+    View Characters
+  </button>
+</article>
+`;
