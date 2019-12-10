@@ -6,11 +6,11 @@ const CharacterCard = ({name, homeworld, population, species, urelatedfilms, adj
   return (
     <article className="character-card">
       <h2 className="character-name">{name}</h2>
-      <h2 className="character-homeworld">{homeworld}</h2>
-      <h2 className="character-population">{population}</h2>
-      <h2 className="character-species">{species}</h2>
+      <h2 className="character-homeworld">World: {homeworld}</h2>
+      <h2 className="character-population">Pop: {population}</h2>
+      <h2 className="character-species">Species: {species}</h2>
       {/* <h2 className="character-relatedfilms">{relatedFilms}</h2> */}
-      <button onClick={() => adjustFavorites({name, homeworld, population, species, urelatedfilms})}>Fave</button>
+      <button className="fave-btn" onClick={() => adjustFavorites({name, homeworld, population, species, urelatedfilms})}>Fave</button>
 </article>
   )
 };

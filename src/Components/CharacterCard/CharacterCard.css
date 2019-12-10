@@ -1,25 +1,56 @@
-.character-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
 .character-card {
     align-items: center;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../Images/Vader.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../Images/Character.jpg");
     background-blend-mode: saturation;
     background-size: 100% 100%;
-    background-color: #5C5E5F;
+    background-color: #4b6060;
     background-blend-mode: screen, difference, darken;
-    box-shadow: 8px 8px 30px white;
+    box-shadow: 2px 2px 30px #847a0f;
     display: flex;
     flex-direction: column;
-    height: 175px;
+    height: 150px;
+    justify-content: space-around;
     margin: 20px;
     padding: 20px;
-    justify-content: space-around;
     width: 165px;
   }
-  .character-card:hover {
+
+.character-card:hover {
     box-shadow: 0 0 10px grey;
-  }
+}
+
+.character-name {
+    color: #dce014;
+}
+
+.character-homeworld {
+    font-size: 15px;
+}
+
+.character-population {
+    font-size: 15px;
+}
+
+.character-species {
+    font-size: 15px;
+}
+
+.view-characters-button {
+    font-size: 15px;
+}
+
+.view-characters-button:hover  {
+    background-color: black;
+}
+
+
+
+.fave-btn {
+  font-size: 20px;
+  width: 90px;
+}
+
+.fave-btn:hover {
+  background-color: black;
+  color: white;
+}
