@@ -19,7 +19,11 @@ exports[`Card should match the snapshot with all data passed in correctly 1`] = 
   >
     3
   </h2>
-  <button>
+  <button
+    className="view-characters-button"
+    onClick={[Function]}
+    value="B A N A N A S"
+  >
     View Characters
   </button>
 </article>

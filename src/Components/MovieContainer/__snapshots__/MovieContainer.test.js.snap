@@ -4,17 +4,9 @@ exports[`MovieContainer should match the snapshot with all data passed in correc
 <div
   className="movie-container"
 >
-  <MovieCard
-    key="55"
-    number={55}
-    releaseDate={1981}
-    title="Big Lebowski"
-  />
-  <MovieCard
-    key="155"
-    number={155}
-    releaseDate={2055}
-    title="Major League"
+  <img
+    alt="loading..."
+    src="https://media3.giphy.com/media/hQgJCEdGOEHa8/source.gif"
   />
 </div>
 `;

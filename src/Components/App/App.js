@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { Route, Redirect, withRouter} from 'react-router-dom';
+import { Route, withRouter} from 'react-router-dom';
 import './App.css';
 import MovieContainer from '../MovieContainer/MovieContainer';
 import CharacterContainer from '../CharacterContainer/CharacterContainer';
 import Login from '../Login/Login';
 import UserData from '../UserData/UserData';
 import ScrollingText from '../ScrollingText/ScrollingText';
-import { retrieveAllMovies, retrieveAllCharacters, getCharacterData } from '../../fetchCalls';
+import { retrieveAllMovies, retrieveAllCharacters } from '../../fetchCalls';
 
 
 export class App extends React.Component {
@@ -56,7 +56,6 @@ export class App extends React.Component {
         quote: '',
         ranking: ''
       },
-      isSignedIn: false
     })
   }
 
@@ -82,7 +81,6 @@ export class App extends React.Component {
 
   render() {
 
-    const { isSignedIn } = this.state
       return (
         <main>
           <Route exact path='/' render={() => <Login enterUserInfo={this.enterUserInfo} />} />
@@ -91,8 +89,6 @@ export class App extends React.Component {
           <Route exact path='/movies:id' render={() => <UserData logOut={this.logOut} name={this.state.user.name} quote={this.state.user.quote} ranking={this.state.user.ranking} />} />
           <Route exact path='/movies:id' render={() => <CharacterContainer name={this.state.user.name} quote={this.state.user.quote} ranking={this.state.user.ranking}selectedCharacters={this.state.selectedCharacters} adjustFavorites={this.adjustFavorites} />} />
           <Route exact path='/movies:id' render={() => <ScrollingText crawl={this.state.openingCrawl}/>} />
-
-
 
         </main>
       )
