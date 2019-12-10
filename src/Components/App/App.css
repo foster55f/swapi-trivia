@@ -7,7 +7,10 @@ main {
   background-blend-mode: saturation;
   background-repeat: no-repeat;
   background-size: 100% 100%;
+  display: flex;
+  flex-direction: column;
   height: 100vh;
+  justify-content: center;
   position: relative;
   text-align: center;
 }
@@ -15,9 +18,4 @@ main {
 .userdata-component {
   position: absolute;
   top: 0;
-}
-
-.movie-container {
-  position: relative;
-  top: 20%;
 }

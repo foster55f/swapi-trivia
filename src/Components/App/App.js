@@ -40,7 +40,6 @@ export class App extends React.Component {
     retrieveAllCharacters(characters.slice(0,10))
       .then(response => this.setState({ selectedCharacters: response }))
       .then(()=> this.forceUpdate())
-    console.log(this.state.selectedCharacters)
   }
 
   enterUserInfo = (userData) => {
@@ -72,7 +71,7 @@ export class App extends React.Component {
       });
 
       this.setState({favoritedCharacters: reducedFavoritesList})
-      console.log(this.state.favoritedCharacters)
+
 
     } else if (!faveCharacterNames.includes(selectedCharacterData.name)) {
       this.setState({favoritedCharacters: [...this.state.favoritedCharacters, selectedCharacterData]})
@@ -82,22 +81,19 @@ export class App extends React.Component {
 
 
   render() {
-    console.log(this.state.openingCrawl)
+
     const { isSignedIn } = this.state
       return (
         <main>
           <Route exact path='/' render={() => <Login enterUserInfo={this.enterUserInfo} />} />
           <Route exact path='/movies' render={() => <MovieContainer movies={this.state.flicks} selectFlick={this.selectFlick} />} />
           <Route exact path='/movies' render={() => <UserData logOut={this.logOut} name={this.state.user.name} quote={this.state.user.quote} ranking={this.state.user.ranking} />} />
-          <Route exact path='/movies:id' render={() => <CharacterContainer name={this.state.user.name} quote={this.state.user.quote} ranking={this.state.user.ranking}selectedCharacters={this.state.selectedCharacters} />} />
+          <Route exact path='/movies:id' render={() => <UserData logOut={this.logOut} name={this.state.user.name} quote={this.state.user.quote} ranking={this.state.user.ranking} />} />
+          <Route exact path='/movies:id' render={() => <CharacterContainer name={this.state.user.name} quote={this.state.user.quote} ranking={this.state.user.ranking}selectedCharacters={this.state.selectedCharacters} adjustFavorites={this.adjustFavorites} />} />
           <Route exact path='/movies:id' render={() => <ScrollingText crawl={this.state.openingCrawl}/>} />
 
-          {/* <Route exact path= render={() => <UserData logOut={this.logOut} name={this.state.user.name} quote={this.state.user.quote} ranking={this.state.user.ranking}/>} /> */}
 
 
-          <CharacterContainer selectedCharacters={this.state.selectedCharacters} adjustFavorites={this.adjustFavorites}/>)
-
-          <ScrollingText />
         </main>
       )
   }
