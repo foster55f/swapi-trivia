@@ -1,0 +1,13 @@
+.favorites-container {
+  background: linear-gradient(rgba(0, 0, .5, .2), rgba(0, .5, .5, 1)), url("../../Images/Death-star2.jpg");
+  background-blend-mode: saturation;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  display: flex;
+  flex-wrap: wrap;
+  height: 70%;
+  justify-content: center;
+  overflow-y: scroll;
+  padding: 0;
+  width: 100%;
+}
