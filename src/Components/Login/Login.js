@@ -1,15 +1,16 @@
 import React, { Component } from 'react'
-import {Link} from 'react-router-dom'
+import {Link, withRouter} from 'react-router-dom'
 import './Login.css'
 
 
-class Login extends Component {
+export class Login extends React.Component {
     constructor() {
         super();
         this.state = {
                 name: '',
                 quote: '',
                 ranking: '',
+                isSignedIn:false,
                 errors: ''
         }
     }
@@ -18,12 +19,14 @@ class Login extends Component {
         this.setState({ [event.target.name]: event.target.value })
     }
 
-    login = (event) => {
+  login = (event) => {
         event.preventDefault();
         const {name,quote,ranking}=this.state
         if (!name || name.length === 0 || !quote || quote.length === 0) {
             return this.setState({ error: 'Please fill out all inputs!!' });
         }
+    console.log(this.props.history.push("./movies"))
+      this.setState({isSignedIn:true})
       this.props.enterUserInfo({ name, quote, ranking })
       
     }
@@ -46,9 +49,7 @@ class Login extends Component {
                         <option>Jedi master</option>
                       </select>
                   </div>
-                  <Link to={'/movies'}>click me</Link>
-                  <button type='submit' className='loginButton' onClick={this.login}>Luke I Am Your Father</button>
-                  
+                  <button type='submit' className='loginButton' onClick={this.login}>Luke I Am Your Father</button>       
                 </form>
               </div>
             </div>
@@ -57,4 +58,4 @@ class Login extends Component {
     }
 }
 
-export default Login
+export default withRouter(Login)

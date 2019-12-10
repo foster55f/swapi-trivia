@@ -6,7 +6,7 @@ import CharacterContainer from '../CharacterContainer/CharacterContainer';
 import Login from '../Login/Login';
 import UserData from '../UserData/UserData';
 import ScrollingText from '../ScrollingText/ScrollingText';
-import { retrieveAllMovies, retrieveAllCharacters,getCharacterData } from '../../fetchCalls';
+import { retrieveAllMovies, retrieveAllCharacters, getCharacterData } from '../../fetchCalls';
 
 
 class App extends Component {
@@ -16,7 +16,6 @@ class App extends Component {
       flicks: [],
       selectedFlick: {},
       selectedCharacters:[],
-      isSignedIn: false,
       user: {},
     }
   }
@@ -42,9 +41,8 @@ class App extends Component {
   enterUserInfo = (userData) => {
     this.setState({
       user: { ...userData },
-      isSignedIn: true,
     })
-    console.log(this.state.user)
+    console.log(this.props)
   }
 
   logOut = () => {
@@ -62,15 +60,19 @@ class App extends Component {
     const { isSignedIn } = this.state
       return (
         <main>
-            <Route exact path='/' render = {() => <Login enterUserInfo={this.enterUserInfo} />}/>
-            <Route path='/movies' render={() => <MovieContainer movies={this.state.flicks} selectFlick={this.selectFlick} />}/>
+          <Route exact path='/' render={() => <Login enterUserInfo={this.enterUserInfo} />} />
+      
+            <Route exact path='/movies' render={() => <MovieContainer movies={this.state.flicks} selectFlick={this.selectFlick} />} />
+      
+          {/* <Route exact path='/' render={() => <Login enterUserInfo={this.enterUserInfo} />} />
+            <Route exact path='/movies' render={() => <MovieContainer movies={this.state.flicks} selectFlick={this.selectFlick} />}/>
           {isSignedIn && this.state.flicks && (
             <UserData logOut={this.logOut} name={this.state.user.name} quote={this.state.user.quote} ranking={this.state.user.ranking}/>
           )}
           {this.state.selectedCharacters&&(
             <CharacterContainer selectedCharacters={this.state.selectedCharacters}/>)
           }
-          <ScrollingText />
+          <ScrollingText /> */}
         </main>
     )
   }
