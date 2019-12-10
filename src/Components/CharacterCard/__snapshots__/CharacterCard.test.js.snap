@@ -24,11 +24,8 @@ exports[`CharacterCard should match the snapshot with all data passed correctly 
   >
     Alien
   </h2>
-  <h2
-    className="character-relatedfilms"
-  />
   <button>
-    View Characters
+    One of My Favorite Characters
   </button>
 </article>
 `;
