@@ -7,7 +7,7 @@ import UserData from '../UserData/UserData';
 describe('UserData', () => {
     let wrapper;
     beforeEach(() => {
-        wrapper = shallow(<CharacterCard
+        wrapper = shallow(<UserData
             name="Foster"
             quote="hello"
             ranking="first"
