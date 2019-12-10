@@ -10,7 +10,7 @@ const CharacterCard = ({name, homeworld, population, species, urelatedfilms, adj
       <h2 className="character-population">{population}</h2>
       <h2 className="character-species">{species}</h2>
       {/* <h2 className="character-relatedfilms">{relatedfilms}</h2> */}
-      <button value={name} onClick={adjustFavorites({name, homeworld, population, species, urelatedfilms})}>Fave</button>
+      <button onClick={() => adjustFavorites({name, homeworld, population, species, urelatedfilms})}>Fave</button>
 </article>
   )
 };
