@@ -26,7 +26,7 @@ export class Login extends React.Component {
         if (!name || name.length === 0 || !quote || quote.length === 0) {
             return this.setState({ error: 'Please fill out all inputs!!' });
         }
-    console.log(this.props.history.push("./movies"))
+    this.props.history.push("./movies")
       this.setState({isSignedIn:true})
       this.props.enterUserInfo({ name, quote, ranking })
 
