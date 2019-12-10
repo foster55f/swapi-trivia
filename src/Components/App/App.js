@@ -15,7 +15,7 @@ class App extends Component {
     this.state = {
       flicks: [],
       selectedFlick: {},
-      selectedCharacters:[],
+      selectedCharacters: [],
       user: {},
       favoritedCharacters: []
     }
@@ -59,19 +59,18 @@ class App extends Component {
 
   adjustFavorites = (selectedCharacterData) => {
     let faveCharacterNames = this.state.favoritedCharacters.map(character => {
-      return characterData.name
+      return character.name
     });
 
-    console.log(faveCharacterNames);
-
-    if (!faveCharacterNames.includes(selectedCharacterData.name) {
-      this.setState({favoritedCharacters: [...this.state.favoriteCharacters, selectedCharacterData]});
-
-    } else {
+    if (faveCharacterNames.includes(selectedCharacterData.name)) {
       let reducedFavoritesList = this.state.favoritedCharacters.filter(character => {
         return character.name !== selectedCharacterData.name
-      })
+      });
+
       this.setState({favoritedCharacters: reducedFavoritesList})
+
+    } else if (!faveCharacterNames.includes(selectedCharacterData.name)) {
+      this.setState({favoritedCharacters: [...this.state.favoritedCharacters, selectedCharacterData]})
     }
   }
 
@@ -87,17 +86,11 @@ class App extends Component {
 
           <Route exact path='/movies' render={() => <UserData logOut={this.logOut} name={this.state.user.name} quote={this.state.user.quote} ranking={this.state.user.ranking}/>} />
 
-          {/
+          <CharacterContainer selectedCharacters={this.state.selectedCharacters} adjustFavorites={this.adjustFavorites}/>)
 
-           } {this.state.selectedCharacters &&(
-           <CharacterContainer selectedCharacters={this.state.selectedCharacters} adjustFavorites={this.adjustFavorites}/>)
-          }
           <ScrollingText />
-
-          */}
-
         </main>
-    )
+      )
   }
 }
 
