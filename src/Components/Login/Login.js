@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {Link, withRouter} from 'react-router-dom'
 import './Login.css'
+import PropTypes from 'prop-types';
 
 
 export class Login extends React.Component {

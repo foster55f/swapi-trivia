@@ -62,17 +62,20 @@ class App extends Component {
         <main>
           <Route exact path='/' render={() => <Login enterUserInfo={this.enterUserInfo} />} />
 
-            <Route exact path='/movies' render={() => <MovieContainer movies={this.state.flicks} selectFlick={this.selectFlick} />} />
+          <Route exact path='/movies' render={() => <MovieContainer movies={this.state.flicks} selectFlick={this.selectFlick} />} />
 
-          {/* <Route exact path='/' render={() => <Login enterUserInfo={this.enterUserInfo} />} />
-            <Route exact path='/movies' render={() => <MovieContainer movies={this.state.flicks} selectFlick={this.selectFlick} />}/>
-          {isSignedIn && this.state.flicks && (
-            <UserData logOut={this.logOut} name={this.state.user.name} quote={this.state.user.quote} ranking={this.state.user.ranking}/>
-          )}
-          {this.state.selectedCharacters&&(
+
+          <Route exact path='/movies' render={() => <UserData logOut={this.logOut} name={this.state.user.name} quote={this.state.user.quote} ranking={this.state.user.ranking}/>} />
+
+          {/*
+
+           } {this.state.selectedCharacters&&(
             <CharacterContainer selectedCharacters={this.state.selectedCharacters}/>)
           }
-          <ScrollingText /> */}
+          <ScrollingText />
+
+          */}
+
         </main>
     )
   }
