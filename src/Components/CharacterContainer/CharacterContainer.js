@@ -4,7 +4,6 @@ import CharacterCard from '../CharacterCard/CharacterCard';
 
 
 const CharacterContainer = (props) => {
-  console.log(props)
   const allCharacters = props.selectedCharacters.map((character, index) => {
     console.log(character)
     return (
