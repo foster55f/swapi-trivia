@@ -74,7 +74,6 @@ export class App extends React.Component {
 
     } else if (!faveCharacterNames.includes(selectedCharacterData.name)) {
       this.setState({favoritedCharacters: [...this.state.favoritedCharacters, selectedCharacterData]})
-      console.log(this.state.favoritedCharacters)
     }
   }
 

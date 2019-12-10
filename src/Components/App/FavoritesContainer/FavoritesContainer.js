@@ -5,7 +5,6 @@ import CharacterCard from '../CharacterCard/CharacterCard';
 
 const FavoritesContainer = (props) => {
   const favoriteCharacters = props.favoritedCharacters.map((character, index) => {
-    console.log(character)
     return (
         <CharacterCard
             name={character.name}
