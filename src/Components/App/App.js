@@ -17,6 +17,7 @@ class App extends Component {
       selectedFlick: {},
       selectedCharacters:[],
       user: {},
+      favoritedCharacters: []
     }
   }
 
@@ -56,6 +57,25 @@ class App extends Component {
     })
   }
 
+  adjustFavorites = (selectedCharacterData) => {
+    let faveCharacterNames = this.state.favoritedCharacters.map(character => {
+      return characterData.name
+    });
+
+    console.log(faveCharacterNames);
+
+    if (!faveCharacterNames.includes(selectedCharacterData.name) {
+      this.setState({favoritedCharacters: [...this.state.favoriteCharacters, selectedCharacterData]});
+
+    } else {
+      let reducedFavoritesList = this.state.favoritedCharacters.filter(character => {
+        return character.name !== selectedCharacterData.name
+      })
+      this.setState({favoritedCharacters: reducedFavoritesList})
+    }
+  }
+
+
   render() {
     const { isSignedIn } = this.state
       return (
@@ -67,10 +87,10 @@ class App extends Component {
 
           <Route exact path='/movies' render={() => <UserData logOut={this.logOut} name={this.state.user.name} quote={this.state.user.quote} ranking={this.state.user.ranking}/>} />
 
-          {/*
+          {/
 
-           } {this.state.selectedCharacters&&(
-            <CharacterContainer selectedCharacters={this.state.selectedCharacters}/>)
+           } {this.state.selectedCharacters &&(
+           <CharacterContainer selectedCharacters={this.state.selectedCharacters} adjustFavorites={this.adjustFavorites}/>)
           }
           <ScrollingText />
 

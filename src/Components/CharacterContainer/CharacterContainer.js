@@ -15,13 +15,14 @@ const CharacterContainer = (props) => {
             species={character.species}
             relatedFilms={character.relatedFilms}
             key={index}
+            adjustFavorites={props.adjustFavorites}
         />
     )
 })
   return (
     <div className="character-container">
-    {allCharacters}
-</div>
+      {allCharacters}
+    </div>
   )
 };
 
