@@ -17,10 +17,16 @@ const CharacterContainer = (props) => {
             key={index}
         />
     )
-})
+  })
+  let loader;
+  if (allCharacters.length === 10) {
+      loader = allCharacters
+  } else {
+      loader = <img src='https://media3.giphy.com/media/hQgJCEdGOEHa8/source.gif' alt="loading..."/>
+  }
   return (
     <div className="character-container">
-    {allCharacters}
+      {loader}
 </div>
   )
 };

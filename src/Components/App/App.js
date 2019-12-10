@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Redirect, Router } from 'react-router-dom';
+import { Route, Redirect, withRouter} from 'react-router-dom';
 import './App.css';
 import MovieContainer from '../MovieContainer/MovieContainer';
 import CharacterContainer from '../CharacterContainer/CharacterContainer';
@@ -9,7 +9,7 @@ import ScrollingText from '../ScrollingText/ScrollingText';
 import { retrieveAllMovies, retrieveAllCharacters, getCharacterData } from '../../fetchCalls';
 
 
-class App extends Component {
+export class App extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -27,6 +27,7 @@ class App extends Component {
 
   selectFlick = (id) => {
     console.log(id)
+    this.props.history.push(`/movies:${id}`)
     this.setState({selectedFlick: this.state.flicks[id-1]})
     this.findCharacters(this.state.flicks[id-1].characters)
   }
@@ -42,10 +43,10 @@ class App extends Component {
     this.setState({
       user: { ...userData },
     })
-    console.log(this.props)
   }
 
   logOut = () => {
+    this.props.history.push('/')
     this.setState({
       user: {
         name: '',
@@ -61,11 +62,12 @@ class App extends Component {
       return (
         <main>
           <Route exact path='/' render={() => <Login enterUserInfo={this.enterUserInfo} />} />
-
           <Route exact path='/movies' render={() => <MovieContainer movies={this.state.flicks} selectFlick={this.selectFlick} />} />
+          <Route exact path='/movies' render={() => <UserData logOut={this.logOut} name={this.state.user.name} quote={this.state.user.quote} ranking={this.state.user.ranking} />} />
+          <Route exact path='/movies:id' render={() => <CharacterContainer name={this.state.user.name} quote={this.state.user.quote} ranking={this.state.user.ranking}selectedCharacters={this.state.selectedCharacters} />} />
 
-
-          <Route exact path='/movies' render={() => <UserData logOut={this.logOut} name={this.state.user.name} quote={this.state.user.quote} ranking={this.state.user.ranking}/>} />
+          {/* <Route exact path= render={() => <UserData logOut={this.logOut} name={this.state.user.name} quote={this.state.user.quote} ranking={this.state.user.ranking}/>} /> */}
+          
 
           {/*
 
@@ -81,4 +83,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App)
