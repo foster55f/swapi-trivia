@@ -13,7 +13,7 @@ const UserData = (props) => {
       </div>
       <div className="btns-container">
         <button className="log-out" id="logout-btn" onClick={() => props.logOut()}>Log Out</button>
-        <button className="menu-btn" id="show__favorites--btn">Faves</button>
+        <button className="menu-btn" id="show__favorites--btn" onClick={() => props.goToFavorites()}>Faves: <span className="counter">{props.favoritesCounter}</span></button>
       </div>
     </nav>
   )

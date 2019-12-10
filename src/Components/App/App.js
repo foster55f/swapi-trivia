@@ -6,6 +6,7 @@ import CharacterContainer from '../CharacterContainer/CharacterContainer';
 import Login from '../Login/Login';
 import UserData from '../UserData/UserData';
 import ScrollingText from '../ScrollingText/ScrollingText';
+import FavoritesContainer from '../FavoritesContainer/FavoritesContainer';
 import { retrieveAllMovies, retrieveAllCharacters } from '../../fetchCalls';
 
 
@@ -18,7 +19,8 @@ export class App extends React.Component {
       selectedCharacters: [],
       openingCrawl:null,
       user: {},
-      favoritedCharacters: []
+      favoritedCharacters: [],
+      favoritesCounter: 0
     }
   }
 
@@ -59,6 +61,10 @@ export class App extends React.Component {
     })
   }
 
+  goToFavorites = () => {
+    this.props.history.push(`/movies/favorites`)
+  }
+
   adjustFavorites = (selectedCharacterData) => {
     let faveCharacterNames = this.state.favoritedCharacters.map(character => {
       return character.name
@@ -69,14 +75,13 @@ export class App extends React.Component {
         return character.name !== selectedCharacterData.name
       });
 
-      this.setState({favoritedCharacters: reducedFavoritesList})
+      this.setState({favoritedCharacters: reducedFavoritesList, favoritesCounter: this.state.favoritesCounter - 1})
 
 
     } else if (!faveCharacterNames.includes(selectedCharacterData.name)) {
-      this.setState({favoritedCharacters: [...this.state.favoritedCharacters, selectedCharacterData]})
+      this.setState({favoritedCharacters: [...this.state.favoritedCharacters, selectedCharacterData], favoritesCounter: this.state.favoritesCounter + 1})
     }
   }
-
 
   render() {
 
@@ -85,9 +90,11 @@ export class App extends React.Component {
           <Route exact path='/' render={() => <Login enterUserInfo={this.enterUserInfo} />} />
           <Route exact path='/movies' render={() => <MovieContainer movies={this.state.flicks} selectFlick={this.selectFlick} />} />
           <Route exact path='/movies' render={() => <UserData logOut={this.logOut} name={this.state.user.name} quote={this.state.user.quote} ranking={this.state.user.ranking} />} />
-          <Route exact path='/movies:id' render={() => <UserData logOut={this.logOut} name={this.state.user.name} quote={this.state.user.quote} ranking={this.state.user.ranking} />} />
+          <Route exact path='/movies:id' render={() => <UserData logOut={this.logOut} name={this.state.user.name} quote={this.state.user.quote} ranking={this.state.user.ranking} favoritesCounter={this.state.favoritesCounter} goToFavorites={this.goToFavorites}/>} />
+          <Route exact path='/movies/favorites' render={() => <UserData logOut={this.logOut} name={this.state.user.name} quote={this.state.user.quote} ranking={this.state.user.ranking} favoritesCounter={this.state.favoritesCounter} goToFavorites={this.goToFavorites}/>} />
           <Route exact path='/movies:id' render={() => <CharacterContainer name={this.state.user.name} quote={this.state.user.quote} ranking={this.state.user.ranking}selectedCharacters={this.state.selectedCharacters} adjustFavorites={this.adjustFavorites} />} />
           <Route exact path='/movies:id' render={() => <ScrollingText crawl={this.state.openingCrawl}/>} />
+          <Route exact path='/movies/favorites' render={() => <FavoritesContainer favoritedCharacters={this.state.favoritedCharacters}/>} />
 
         </main>
       )

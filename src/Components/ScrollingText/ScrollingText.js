@@ -16,3 +16,7 @@ const ScrollingText = (props) => {
 };
 
 export default ScrollingText;
+
+ScrollingText.propTypes = {
+  crawl: PropTypes.string
+}
