@@ -68,9 +68,11 @@ class App extends Component {
       });
 
       this.setState({favoritedCharacters: reducedFavoritesList})
+      console.log(this.state.favoritedCharacters)
 
     } else if (!faveCharacterNames.includes(selectedCharacterData.name)) {
       this.setState({favoritedCharacters: [...this.state.favoritedCharacters, selectedCharacterData]})
+      console.log(this.state.favoritedCharacters)
     }
   }
 
