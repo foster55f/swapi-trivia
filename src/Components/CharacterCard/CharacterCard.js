@@ -11,7 +11,7 @@ const CharacterCard = ({name, homeworld, population, species, urelatedfilms, adj
       <h2 className="character-species">Species: {species}</h2>
       {/* <h2 className="character-relatedfilms">{relatedFilms}</h2> */}
       <button className="fave-btn" onClick={() => adjustFavorites({name, homeworld, population, species, urelatedfilms})}>Fave</button>
-</article>
+    </article>
   )
 };
 
