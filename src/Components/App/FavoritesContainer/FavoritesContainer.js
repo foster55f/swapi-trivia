@@ -1,10 +1,10 @@
 import React from 'react';
-import './CharacterContainer.css';
+import './FavoritesContainer.css';
 import CharacterCard from '../CharacterCard/CharacterCard';
 
 
-const CharacterContainer = (props) => {
-  const allCharacters = props.selectedCharacters.map((character, index) => {
+const FavoritesContainer = (props) => {
+  const favoriteCharacters = props.favoritedCharacters.map((character, index) => {
     console.log(character)
     return (
         <CharacterCard
@@ -25,7 +25,7 @@ const CharacterContainer = (props) => {
       loader = <img src='https://media3.giphy.com/media/hQgJCEdGOEHa8/source.gif' alt="loading..."/>
   }
   return (
-    <div className="character-container">
+    <div className="favorites-container">
       {loader}
     </div>
   )

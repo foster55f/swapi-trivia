@@ -11,7 +11,7 @@ export class Login extends React.Component {
                 name: '',
                 quote: '',
                 ranking: '',
-                isSignedIn:false,
+                isSignedIn: false,
                 errors: ''
         }
     }
@@ -22,7 +22,7 @@ export class Login extends React.Component {
 
   login = (event) => {
         event.preventDefault();
-        const {name,quote,ranking}=this.state
+        const {name, quote, ranking} = this.state
         if (!name || name.length === 0 || !quote || quote.length === 0) {
             return this.setState({ error: 'Please fill out all inputs!!' });
         }

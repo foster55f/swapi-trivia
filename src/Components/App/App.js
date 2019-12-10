@@ -18,6 +18,7 @@ export class App extends React.Component {
       selectedCharacters: [],
       openingCrawl:null,
       user: {},
+      favoritedCharacters: []
     }
   }
 
@@ -58,17 +59,39 @@ export class App extends React.Component {
     })
   }
 
+  adjustFavorites = (selectedCharacterData) => {
+    let faveCharacterNames = this.state.favoritedCharacters.map(character => {
+      return character.name
+    });
+
+    if (faveCharacterNames.includes(selectedCharacterData.name)) {
+      let reducedFavoritesList = this.state.favoritedCharacters.filter(character => {
+        return character.name !== selectedCharacterData.name
+      });
+
+      this.setState({favoritedCharacters: reducedFavoritesList})
+
+
+    } else if (!faveCharacterNames.includes(selectedCharacterData.name)) {
+      this.setState({favoritedCharacters: [...this.state.favoritedCharacters, selectedCharacterData]})
+      console.log(this.state.favoritedCharacters)
+    }
+  }
+
+
   render() {
-    console.log(this.state.openingCrawl)
+
       return (
         <main>
           <Route exact path='/' render={() => <Login enterUserInfo={this.enterUserInfo} />} />
           <Route exact path='/movies' render={() => <MovieContainer movies={this.state.flicks} selectFlick={this.selectFlick} />} />
           <Route exact path='/movies' render={() => <UserData logOut={this.logOut} name={this.state.user.name} quote={this.state.user.quote} ranking={this.state.user.ranking} />} />
-          <Route exact path='/movies:id' render={() => <CharacterContainer name={this.state.user.name} quote={this.state.user.quote} ranking={this.state.user.ranking}selectedCharacters={this.state.selectedCharacters} />} />
+          <Route exact path='/movies:id' render={() => <UserData logOut={this.logOut} name={this.state.user.name} quote={this.state.user.quote} ranking={this.state.user.ranking} />} />
+          <Route exact path='/movies:id' render={() => <CharacterContainer name={this.state.user.name} quote={this.state.user.quote} ranking={this.state.user.ranking}selectedCharacters={this.state.selectedCharacters} adjustFavorites={this.adjustFavorites} />} />
           <Route exact path='/movies:id' render={() => <ScrollingText crawl={this.state.openingCrawl}/>} />
+
         </main>
-    )
+      )
   }
 }
 
