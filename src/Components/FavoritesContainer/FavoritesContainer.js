@@ -9,10 +9,10 @@ const FavoritesContainer = (props) => {
     console.log(character)
     return (
         <CharacterCard
-            name={props.name}
-            homeworld={props.homeworld}
+            name={character.name}
+            homeworld={character.homeworld}
             species={character.species}
-            key={props.name}
+            key={character.name}
         />
     )
   })
