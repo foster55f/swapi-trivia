@@ -2,7 +2,6 @@ import React from 'react';
 import './ScrollingText.css';
 import PropTypes from 'prop-types';
 const ScrollingText = (props) => {
-console.log(props)
   return (
     <section>
       <div className="scrolling-container">

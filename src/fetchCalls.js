@@ -1,5 +1,5 @@
 export const retrieveAllMovies = (url) => {
-    return fetch(url)
+    return fetch('https://swapi.co/api/films/')
         .then(response => response.json())
         .then(movies => sortFlicks(movies.results))
         .catch(error => console.log(error))
