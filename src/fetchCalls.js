@@ -1,6 +1,11 @@
 export const retrieveAllMovies = (url) => {
     return fetch('https://swapi.co/api/films/')
-        .then(response => response.json())
+    .then(response => {
+        if (!response.ok) {
+          throw Error('Error fetching ideas');
+        }
+        return response.json();
+      })
         .then(movies => sortFlicks(movies.results))
         .catch(error => console.log(error))
 }
