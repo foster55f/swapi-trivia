@@ -9,9 +9,15 @@
 }
 
 .users-data {
+  font-size: 18px;
   margin-left: 20px;
+  overflow-x: scroll;
   text-align: left;
   width: 30%;
+}
+
+.quotation-value {
+   white-space: nowrap;
 }
 
 .btns-container {
