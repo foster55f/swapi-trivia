@@ -10,7 +10,7 @@ export class Login extends React.Component {
         this.state = {
                 name: '',
                 quote: '',
-                ranking: '',
+                ranking: 'Padawan',
                 isSignedIn: false,
                 errors: ''
         }

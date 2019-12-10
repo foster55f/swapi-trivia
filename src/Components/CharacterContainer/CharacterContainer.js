@@ -9,7 +9,7 @@ const CharacterContainer = (props) => {
     return (
         <CharacterCard
             name={character.name}
-            homeworld={character.homeworld}
+            homeworld={character.homeWorld}
             population={character.population}
             species={character.species}
             relatedFilms={character.relatedFilms}

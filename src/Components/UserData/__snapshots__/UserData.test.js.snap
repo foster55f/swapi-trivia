@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserData should match the snapshot with all data passed correctly 1`] = `
+<nav
+  className="userdata-component"
+>
+  <div
+    className="users-data"
+  >
+    <p
+      className="name-value"
+    >
+      Username: 
+      <span
+        className="user-values"
+      >
+        Foster
+      </span>
+    </p>
+    <p
+      className="quotation-value"
+    >
+      Quotation: 
+      <span
+        className="user-values"
+      >
+        hello
+      </span>
+    </p>
+    <p
+      className="selected-ranking"
+    >
+      Fandom: 
+      <span
+        className="user-values"
+      >
+        first
+      </span>
+    </p>
+  </div>
+  <div
+    className="btns-container"
+  >
+    <button
+      className="log-out"
+      id="logout-btn"
+      onClick={[Function]}
+    >
+      Log Out
+    </button>
+    <button
+      className="menu-btn"
+      id="show__favorites--btn"
+    >
+      Faves
+    </button>
+  </div>
+</nav>
+`;
