@@ -15,7 +15,8 @@ export class App extends React.Component {
     this.state = {
       flicks: [],
       selectedFlick: {},
-      selectedCharacters:[],
+      selectedCharacters: [],
+      openingCrawl:null,
       user: {},
     }
   }
@@ -26,10 +27,12 @@ export class App extends React.Component {
   }
 
   selectFlick = (id) => {
-    console.log(id)
+    let correctCrawl = this.state.flicks.find(flick => {
+      return flick.episode_id === parseInt(id)
+    })
     this.props.history.push(`/movies:${id}`)
-    this.setState({selectedFlick: this.state.flicks[id-1]})
-    this.findCharacters(this.state.flicks[id-1].characters)
+    this.setState({ selectedFlick: this.state.flicks[id - 1], openingCrawl: correctCrawl.opening_crawl})
+    this.findCharacters(this.state.flicks[id - 1].characters)
   }
 
   findCharacters(characters) {
@@ -58,6 +61,7 @@ export class App extends React.Component {
   }
 
   render() {
+    console.log(this.state.openingCrawl)
     const { isSignedIn } = this.state
       return (
         <main>
@@ -65,6 +69,7 @@ export class App extends React.Component {
           <Route exact path='/movies' render={() => <MovieContainer movies={this.state.flicks} selectFlick={this.selectFlick} />} />
           <Route exact path='/movies' render={() => <UserData logOut={this.logOut} name={this.state.user.name} quote={this.state.user.quote} ranking={this.state.user.ranking} />} />
           <Route exact path='/movies:id' render={() => <CharacterContainer name={this.state.user.name} quote={this.state.user.quote} ranking={this.state.user.ranking}selectedCharacters={this.state.selectedCharacters} />} />
+          <Route exact path='/movies:id' render={() => <ScrollingText crawl={this.state.openingCrawl}/>} />
 
           {/* <Route exact path= render={() => <UserData logOut={this.logOut} name={this.state.user.name} quote={this.state.user.quote} ranking={this.state.user.ranking}/>} /> */}
           
