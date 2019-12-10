@@ -1,5 +1,7 @@
 import React from 'react'
 import './MovieContainer.css'
+import { Route } from 'react-router-dom';
+
 import MovieCard from '../MovieCard/MovieCard'
 import PropTypes from 'prop-types';
 
@@ -16,9 +18,16 @@ const MovieContainer = (props) => {
             />
         )
     })
+
+    let loader;
+    if (allMovies.length === 7) {
+        loader = allMovies
+    } else {
+        loader = <img src='https://media3.giphy.com/media/hQgJCEdGOEHa8/source.gif' alt="loading..."/>
+    }
     return (
         <div className="movie-container">
-            {allMovies}
+            {loader}
         </div>
     )
 }

@@ -5,7 +5,7 @@ import CharacterCard from '../CharacterCard/CharacterCard';
 
 const CharacterContainer = (props) => {
   console.log(props)
-  const allCharacters = props.selectedCharacters.map((character, i) => {
+  const allCharacters = props.selectedCharacters.map((character, index) => {
     console.log(character)
     return (
         <CharacterCard
@@ -14,7 +14,7 @@ const CharacterContainer = (props) => {
             population={character.population}
             species={character.species}
             relatedFilms={character.relatedFilms}
-            key={i}
+            key={index}
         />
     )
 })
