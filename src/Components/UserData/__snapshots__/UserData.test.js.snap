@@ -51,8 +51,12 @@ exports[`UserData should match the snapshot with all data passed correctly 1`] =
     <button
       className="menu-btn"
       id="show__favorites--btn"
+      onClick={[Function]}
     >
-      Faves
+      Faves: 
+      <span
+        className="counter"
+      />
     </button>
   </div>
 </nav>
