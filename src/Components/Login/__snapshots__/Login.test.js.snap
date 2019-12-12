@@ -1,7 +1,65 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Login should match the snapshot 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
+<section
+  className="login-section"
+>
+  <div
+    className="login-home"
+  >
+    <div
+      className="form-container"
+    >
+      <h1
+        className="welcome"
+      >
+        Welcome to Star Wars!!!
+      </h1>
+      <h2 />
+      <form>
+        <input
+          name="name"
+          onChange={[Function]}
+          placeholder="Name"
+          type="text"
+          value=""
+        />
+        <textarea
+          name="quote"
+          onChange={[Function]}
+          placeholder="Quote"
+          type="text"
+          value=""
+        />
+        <div>
+          <label>
+            Select Level:
+          </label>
+          <select
+            name="ranking"
+            onChange={[Function]}
+            value="Padawan"
+          >
+            <option>
+              Padawan
+            </option>
+            <option>
+              Jedi knight
+            </option>
+            <option>
+              Jedi master
+            </option>
+          </select>
+        </div>
+        <button
+          className="loginButton"
+          onClick={[Function]}
+          type="submit"
+        >
+          Luke I Am Your Father
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
 `;
