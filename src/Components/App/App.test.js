@@ -6,14 +6,16 @@ import { retrieveAllMovies } from '../../fetchCalls';
 jest.mock('../../fetchCalls.js')
 
 describe('App', () => {
+  let wrapper;
   beforeEach(() => {
+    wrapper = shallow(<App />);
+
     retrieveAllMovies.mockImplementation(() => {
-      return Promise.resolve([{}, {}, {}])
+      return Promise.resolve([{movie1: 'name'}, {movie2: 'name'}, {movie3: 'name'}])
     });
   });
 
   it('should match the snapshot', () => {
-    let wrapper = shallow(<App />);
     expect(wrapper).toMatchSnapshot()
   });
 

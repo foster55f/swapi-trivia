@@ -27,4 +27,17 @@ describe('Login', () => {
     //Tried removing the initial snapshot test in case it was causing any contamination
     //SOLVED - sort of, I altered the Login import from (import Login to { Login} , but now the snapshot fails)
   });
+
+  it('should run handleChange when the inputs are manipulated', () => {
+    const mockEvent = { target: { name: 'name', value: 'foster'} };
+    wrapper.instance().handleChange = jest.fn();
+    // const mockEvent = { preventDefault: jest.fn() };
+
+    wrapper.find('input').simulate('change', mockEvent);
+
+    expect(wrapper.instance().handleChange).toHaveBeenCalledWith(mockEvent);
+  });
+
+
+
 });

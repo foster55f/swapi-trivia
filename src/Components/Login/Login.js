@@ -40,7 +40,7 @@ export class Login extends React.Component {
                 <h1 className ='welcome'>Welcome to Star Wars!!!</h1>
                 <h2>{this.state.error}</h2>
                 <form>
-                  <input type='text' placeholder='Name' value={this.state.name} name = 'name' onChange={event => this.handleChange(event)} />
+                  <input className="input-one" type='text' placeholder='Name' value={this.state.name} name = 'name' onChange={event => this.handleChange(event)} />
                   <textarea type='text' placeholder='Quote' value={this.state.quote} name = 'quote' onChange={event => this.handleChange(event)}></textarea>
                   <div>
                     <label>Select Level:</label>
