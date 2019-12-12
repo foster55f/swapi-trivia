@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import MovieContainer from '../MovieContainer/MovieContainer';
 
-describe('MovieContainer', () => {   
+describe('MovieContainer', () => {
     let wrapper;
     const mockSelect = jest.fn()
     beforeEach(() => {
@@ -27,6 +27,7 @@ describe('MovieContainer', () => {
             select={mockSelect}
         />)
     })
+    
   it('should match the snapshot with all data passed in correctly', () => {
     expect(wrapper).toMatchSnapshot();
   });
