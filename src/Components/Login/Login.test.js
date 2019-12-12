@@ -48,17 +48,31 @@ describe('Login', () => {
     expect(wrapper.instance().login).toHaveBeenCalledWith(mockEvent);
   });
 
-  // it('should reset state when validations pass for login', () => {
-  //   const mockEvent = { preventDefault: jest.fn() };
-  //     const originalState = {name: 'Tom', quote: 'Nah', ranking: 'Padawan', isSignedIn: false, errors: ''}
-  //   const expected = { title: '', description: '' };
-  //
-  //   wrapper.instance().setState(originalState);
-  //
-  //   wrapper.instance().logIn();
-  //
-  //   expect(wrapper.state()).toEqual(expected);
-  // });
+  it('should throw error if login validations fail', () => {
+    const mockEvent = { preventDefault: jest.fn() };
+    const originalState = {isSignedIn: false}
+    const expected = {error: "Please fill out all inputs!!", errors: "", isSignedIn: false, name: "", quote: "", ranking: "Padawan"};
+    // wrapper.instance().login = jest.fn();
+    wrapper.instance().forceUpdate();
+    wrapper.instance().setState(originalState);
+
+    wrapper.instance().login(mockEvent);
+
+    expect(wrapper.state()).toEqual(expected);
+  });
+
+  it('should reset state when login is called', () => {
+    const mockEvent = { preventDefault: jest.fn() };
+    const originalState = {isSignedIn: false}
+    const expected = {error: "Please fill out all inputs!!", errors: "", isSignedIn: false, name: "", quote: "", ranking: "Padawan"};
+    // wrapper.instance().login = jest.fn();
+    wrapper.instance().forceUpdate();
+    wrapper.instance().setState(originalState);
+
+    wrapper.instance().login(mockEvent);
+
+    expect(wrapper.state()).toEqual(expected);
+  });
 
 
 
