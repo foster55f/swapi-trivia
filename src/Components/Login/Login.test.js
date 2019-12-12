@@ -6,7 +6,7 @@ describe('Login', () => {
   let wrapper;
 
     beforeEach(() => {
-    wrapper = shallow(<Login />);
+    wrapper = shallow(<Login enterUserInfo={jest.fn()}/>);
   });
 
   it('should match the snapshot', () => {
@@ -61,10 +61,10 @@ describe('Login', () => {
     expect(wrapper.state()).toEqual(expected);
   });
 
-  it('should reset state when login is called', () => {
+  it('should update state when login is called', () => {
     const mockEvent = { preventDefault: jest.fn() };
-    const originalState = {isSignedIn: false}
-    const expected = {error: "Please fill out all inputs!!", errors: "", isSignedIn: false, name: "", quote: "", ranking: "Padawan"};
+    const originalState = {name: 'Tom', quote: 'Nah', ranking: 'Padawan', isSignedIn: false, errors: ''};
+    const expected = {name: 'Tom', quote: 'Nah', ranking: 'Padawan', isSignedIn: true, errors: ''};
     // wrapper.instance().login = jest.fn();
     wrapper.instance().forceUpdate();
     wrapper.instance().setState(originalState);
@@ -73,8 +73,5 @@ describe('Login', () => {
 
     expect(wrapper.state()).toEqual(expected);
   });
-
-
-
 
 });
