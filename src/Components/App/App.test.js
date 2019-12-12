@@ -33,4 +33,23 @@ describe('App', () => {
     //Could it have something to do with our class syntax in App.js (App extends React.Component instead of Component)?
 
 
+    it('should update state when enterUserInfo is called', () => {
+      const wrapper = shallow(<App />);
+      const mockUserData = {name: 'Billy Madison', quote: 'Odoyle juuls', ranking: 'Padawan'};
+      const expected = {name: 'Billy Madison', quote: 'Odoyle juuls', ranking: 'Padawan'};
+        // wrapper.instance().enterUserInfo = jest.fn();
+        // wrapper.instance().forceUpdate();
+      expect(wrapper.state('user')).toEqual({});
+
+      wrapper.instance().enterUserInfo(mockUserData);
+
+      expect(wrapper.state('user')).toEqual(expected);
+    });
+    //Test won't register App as a class component (error message: ShallowWrapper::state() can only be called on class components)
+    //Tried various unsuccessful tweaks - is there some global issue with the App file? Import syntax?
+    //SOLVED - import syntax
+
+
+
+
 });
