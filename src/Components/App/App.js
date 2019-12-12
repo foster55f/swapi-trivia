@@ -33,7 +33,7 @@ export class App extends React.Component {
     let correctCrawl = this.state.flicks.find(flick => {
       return flick.episode_id === parseInt(id)
     })
-    this.props.history.push(`/movies:${id}`)
+    {/*  this.props.history.push(`/movies:${id}`)   */}
     this.setState({ selectedFlick: this.state.flicks[id - 1], openingCrawl: correctCrawl.opening_crawl})
     this.findCharacters(this.state.flicks[id - 1].characters)
   }
@@ -51,7 +51,7 @@ export class App extends React.Component {
   }
 
   logOut = () => {
-    this.props.history.push('/')
+  {/*   this.props.history.push('/')   */}
     this.setState({
       user: {
         name: '',
@@ -61,9 +61,11 @@ export class App extends React.Component {
     })
   }
 
+/*
   goToFavorites = () => {
     this.props.history.push(`/movies/favorites`)
   }
+*/
 
   adjustFavorites = (selectedCharacterData) => {
     let faveCharacterNames = this.state.favoritedCharacters.map(character => {

@@ -12,23 +12,26 @@ exports[`CharacterCard should match the snapshot with all data passed correctly 
   <h2
     className="character-homeworld"
   >
+    World: 
     Big Apple
   </h2>
   <h2
     className="character-population"
   >
+    Pop: 
     55555
   </h2>
   <h2
     className="character-species"
   >
+    Species: 
     Alien
   </h2>
-  <h2
-    className="character-relatedfilms"
-  />
-  <button>
-    View Characters
+  <button
+    className="fave-btn"
+    onClick={[Function]}
+  >
+    Fave
   </button>
 </article>
 `;

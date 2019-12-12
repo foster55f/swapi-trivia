@@ -23,13 +23,14 @@ describe('CharacterContainer', () => {
                     population: 100,
                     species: "Human"
                 }
-            ]}
+            ]},
+            adjustFavorites={jest.fn()}
             // user={{
             //     name: 'Foster',
             //     quote: 'Aim small miss small',
             //     ranking: 'Professional'
             // }}
-                    
+
         />)
     })
     it('should match the snapshot with all data passed in correctly', () => {
