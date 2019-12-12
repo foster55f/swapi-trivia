@@ -13,30 +13,53 @@ describe('App', () => {
   });
 
   it('should match the snapshot', () => {
-    const wrapper = shallow(<App />);
+    let wrapper = shallow(<App />);
     expect(wrapper).toMatchSnapshot()
   });
 
-  it('should invoke retrieveAllMovies() after componentDidMount triggers', () => {
+  it('should invoke retrieveAllMovies after componentDidMount triggers', () => {
     shallow(<App />);
     expect(retrieveAllMovies).toHaveBeenCalled();
     //Imports are solid, syntax is fine, why won't this invoke in the test?
-    // shallow should trigger componentDidMount which invokes retrieveAllMovies?
+    //Shallow should trigger componentDidMount which invokes retrieveAllMovies
     //I've tried declaring const retrieveAllMovies = jest.fn.mockimpl() as an alternative with no dice
-    //File pathway isn't the problem. I'm not sure how to resolve the issue
+    //File pathway isn't the problem
+    //I've tried writing the jest.mock(url with and without the .js suffix)
+    //Jest dependency IS installed the; snapshot test work
     //I've tried breaking the test into a nested described('componentDidMount' ...), but that didn't work
+    //I tried to first manually invoke componentDidMount (wrapper.instance().componentDidMount();)
   });
 });
 
-{/*
-describe('getIdeas', () => {
-  let mockResponse = [
-    {
-      id: 1,
-      title: "Sweaters for pugs",
-      description: "To keep them warm"
-    }
-  ];
-});
-
-*/}
+//
+// selectFlick = (id) => {
+//   let correctCrawl = this.state.flicks.find(flick => {
+//     return flick.episode_id === parseInt(id)
+//   })
+//   this.props.history.push(`/movies:${id}`)
+//   this.setState({ selectedFlick: this.state.flicks[id - 1], openingCrawl: correctCrawl.opening_crawl})
+//   this.findCharacters(this.state.flicks[id - 1].characters)
+// }
+//
+// findCharacters(characters) {
+//   retrieveAllCharacters(characters.slice(0,10))
+//     .then(response => this.setState({ selectedCharacters: response }))
+//     .then(()=> this.forceUpdate())
+// }
+//
+// enterUserInfo = (userData) => {
+//   this.setState({
+//     user: { ...userData },
+//   })
+// }
+//
+// logOut = () => {
+//   this.props.history.push('/')
+//   this.setState({
+//     user: {
+//       name: '',
+//       quote: '',
+//       ranking: ''
+//     },
+//   })
+// }
