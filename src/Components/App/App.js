@@ -60,10 +60,12 @@ export class App extends React.Component {
       },
     })
   }
-
+  
+{/*
   goToFavorites = () => {
     this.props.history.push(`/movies/favorites`)
   }
+*/}
 
   adjustFavorites = (selectedCharacterData) => {
     let faveCharacterNames = this.state.favoritedCharacters.map(character => {

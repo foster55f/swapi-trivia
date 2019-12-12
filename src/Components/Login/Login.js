@@ -20,7 +20,7 @@ export class Login extends React.Component {
         this.setState({ [event.target.name]: event.target.value })
     }
 
-  login = (event) => {
+    login = (event) => {
         event.preventDefault();
         const {name, quote, ranking} = this.state
         if (!name || name.length === 0 || !quote || quote.length === 0) {
