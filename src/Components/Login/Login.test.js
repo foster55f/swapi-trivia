@@ -38,6 +38,29 @@ describe('Login', () => {
     expect(wrapper.instance().handleChange).toHaveBeenCalledWith(mockEvent);
   });
 
+  it('should invoke login upon button click', () => {
+    const mockEvent = { preventDefault: jest.fn() };
+    wrapper.instance().login = jest.fn();
+    wrapper.instance().forceUpdate();
+
+    wrapper.find('button').simulate('click', mockEvent);
+
+    expect(wrapper.instance().login).toHaveBeenCalledWith(mockEvent);
+  });
+
+  // it('should reset state when validations pass for login', () => {
+  //   const mockEvent = { preventDefault: jest.fn() };
+  //     const originalState = {name: 'Tom', quote: 'Nah', ranking: 'Padawan', isSignedIn: false, errors: ''}
+  //   const expected = { title: '', description: '' };
+  //
+  //   wrapper.instance().setState(originalState);
+  //
+  //   wrapper.instance().logIn();
+  //
+  //   expect(wrapper.state()).toEqual(expected);
+  // });
+
+
 
 
 });
