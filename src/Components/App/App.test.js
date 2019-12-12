@@ -6,11 +6,11 @@ import { retrieveAllMovies } from '../../fetchCalls';
 jest.mock('../../fetchCalls.js')
 
 describe('App', () => {
-  beforeEach(() => {
-    retrieveAllMovies.mockImplementation(() => {
-      return Promise.resolve([{movie1: 'name'}, {movie2: 'name'}, {movie3: 'name'}])
+    beforeEach(() => {
+      retrieveAllMovies.mockImplementation(() => {
+        return Promise.resolve([{movie1: 'name'}, {movie2: 'name'}, {movie3: 'name'}])
+      });
     });
-  });
 
     it('should match the snapshot', () => {
       const wrapper = shallow(<App />);
@@ -21,40 +21,21 @@ describe('App', () => {
       shallow(<App />);
       expect(retrieveAllMovies).toHaveBeenCalled();
     });
-      //Imports are solid, syntax is fine, but this still invoke in the test (0 invokes)?
-      //Shallow should trigger componentDidMount which invokes retrieveAllMovies
-      //I've tried declaring const retrieveAllMovies = jest.fn.mockimpl() as an alternative with no dice
-      //File pathway isn't the problem
-      //I've tried writing the jest.mock(url with and without the .js suffix)
-      //Jest dependency IS installed; the snapshot test works
-      //I've tried breaking the test into a nested described('componentDidMount' ...), but that didn't work
-      //I tried to first manually invoke componentDidMount (wrapper.instance().componentDidMount();)
-      //Tried playing with async / await in strange ways
-      //Could it have something to do with our class syntax in App.js (App extends React.Component instead of Component)?
-
 
     it('should update state when enterUserInfo is called', () => {
       const wrapper = shallow(<App />);
       const mockUserData = {name: 'Billy Madison', quote: 'Odoyle juuls', ranking: 'Padawan'};
       const expected = {name: 'Billy Madison', quote: 'Odoyle juuls', ranking: 'Padawan'};
-        // wrapper.instance().enterUserInfo = jest.fn();
-        // wrapper.instance().forceUpdate();
       expect(wrapper.state('user')).toEqual({});
 
       wrapper.instance().enterUserInfo(mockUserData);
 
       expect(wrapper.state('user')).toEqual(expected);
     });
-    //Test won't register App as a class component (error message: ShallowWrapper::state() can only be called on class components)
-    //Tried various unsuccessful tweaks - is there some global issue with the App file? Import syntax?
-    //SOLVED - import syntax
 
     it('should update state when logOut is called', () => {
       const wrapper = shallow(<App />);
       const mockUserData = {name: 'Billy Madison', quote: 'Odoyle juuls', ranking: 'Padawan'};
-      // wrapper.instance().enterUserInfo = jest.fn();
-      // wrapper.instance().forceUpdate();
-      // expect(wrapper.state('user')).toEqual(mockUserData);
       wrapper.instance().setState({user: mockUserData});
 
       wrapper.instance().logOut();
@@ -64,7 +45,7 @@ describe('App', () => {
                     favoritedCharacters: [],
                     favoritesCounter: 0,
                     flicks: [],
-                    openingCrawl: null,
+                    openingCrawl:null,
                     selectedCharacters: [],
                     selectedFlick: {},
                     user: {
@@ -75,33 +56,37 @@ describe('App', () => {
                   });
     });
 
+    it('should update state when selectFlick is called', () => {
+      const wrapper = shallow(<App />);
+      wrapper.instance().findCharacters = jest.fn();
+      // wrapper.instance().forceUpdate();
+      wrapper.instance().setState(
+                {
+                  favoritedCharacters: [],
+                  favoritesCounter: 0,
+                  flicks: [{episode_id: 1}, {episode_id: 3}, {episode_id : 2}],
+                  openingCrawl: 2,
+                  selectedCharacters: [],
+                  selectedFlick: {},
+                  user: {
+                    name: "",
+                    quote: "",
+                    ranking: "",
+                  }
+                }
+              );
 
+      wrapper.instance().selectFlick(2);
 
-  //
-  //   logOut = () => {
-  //   {/*   this.props.history.push('/')   */}
-  //     this.setState({
-  //       user: {
-  //         name: '',
-  //         quote: '',
-  //         ranking: ''
-  //       },
-  //     })
-  //   }
-  //
-  //
-  //
-  //
-  // selectFlick = (id) => {
-  //   let correctCrawl = this.state.flicks.find(flick => {
-  //     return flick.episode_id === parseInt(id)
-  //   })
-  //   {/*  this.props.history.push(`/movies:${id}`)   */}
-  //   this.setState({ selectedFlick: this.state.flicks[id - 1], openingCrawl: correctCrawl.opening_crawl})
-  //   this.findCharacters(this.state.flicks[id - 1].characters)
-  // }
-
-
-
-
+      expect(wrapper.state()).toEqual(
+                {
+                  favoritedCharacters: [],
+                  favoritesCounter: 0,
+                  flicks: [{episode_id: 1}, {episode_id: 3}, {episode_id: 2}],
+                  openingCrawl: undefined,
+                  selectedCharacters: [],
+                  selectedFlick: {episode_id: 3},
+                  user: {name: "", quote: "", ranking: ""}
+                });
+    });
 });

@@ -48,7 +48,7 @@ describe('Login', () => {
     expect(wrapper.instance().login).toHaveBeenCalledWith(mockEvent);
   });
 
-  it('should throw error if login validations fail', () => {
+  it('should throw error if login if validations are not satisfied', () => {
     const mockEvent = { preventDefault: jest.fn() };
     const originalState = {isSignedIn: false}
     const expected = {error: "Please fill out all inputs!!", errors: "", isSignedIn: false, name: "", quote: "", ranking: "Padawan"};
