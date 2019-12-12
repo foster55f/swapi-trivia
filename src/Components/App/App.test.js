@@ -59,7 +59,6 @@ describe('App', () => {
     it('should update state when selectFlick is called', () => {
       const wrapper = shallow(<App />);
       wrapper.instance().findCharacters = jest.fn();
-      // wrapper.instance().forceUpdate();
       wrapper.instance().setState(
                 {
                   favoritedCharacters: [],
