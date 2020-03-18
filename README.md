@@ -3,10 +3,10 @@
 * by Austen Dunn [github account](https://github.com/Dunn-Austen)
 * by Foster Taylor [github account](https://github.com/foster55f)
 
-This project was a React app buolt for Star Wars fans!
+This project was a React app built for Star Wars fans!
 
 ## Our Goals
-- Improve ability to work with React 
+- Improve ability to work with React.js
 - Improve ability to fetch data
 - Implement dry code
 - Build an application that would be useful  to a user
